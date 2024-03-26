@@ -1,0 +1,20 @@
+#about-image {
+  height: 400px;
+  width: 400px;
+  
+  img {
+    height: auto;
+    width: 400px;
+  }
+}
+
+p.about-text {
+  background-color: $primary-faded;
+  padding: 1rem;
+  border-radius: $border-radius;
+
+  .bold-green-text {
+    font-size: 1.2rem;
+    color: $secondary;
+  }
+}

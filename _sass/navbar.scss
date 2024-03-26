@@ -1,0 +1,15 @@
+.navbar {
+  .nav-link { 
+    text-align: center;
+    border-bottom: 4px solid transparent;
+
+    &:hover {
+      border-bottom: 4px solid $secondary;
+    }
+  }
+}
+
+.navbar--hidden {
+  transform: translateY(-100px);
+  transition: 0.2s;
+}

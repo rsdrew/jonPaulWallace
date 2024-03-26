@@ -1,0 +1,92 @@
+@import "bootstrap-override";
+@import "bootstrap-5.3.3/scss/bootstrap.scss";
+@import "navbar";
+@import "hero";
+@import "about";
+@import "footer";
+
+/* Custom Styles */
+* {
+    transition: 0.15s ease-in-out;
+	letter-spacing: 0.1rem;
+}
+
+p {
+	line-height: 1.7rem;
+	color: var(--bs-secondary-color);
+}
+
+img {
+	border-radius: $border-radius;
+	object-fit: cover;
+	width: 100%;
+	object-position: top;
+}
+
+.hidden {
+	display: none;
+}
+
+.slide-in {
+  transform: translateY(16px) !important;
+  opacity: 0 !important;
+  transition: transform 1s, opacity 1s !important;
+}
+
+.slide-in.slide-in--activate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+#background-image {
+	content: "";
+	background-image: url("/assets/images/fun-background.jpg");
+	background-size: cover;
+	background-position: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 200vh;
+	min-width: 100vw;
+	z-index: -100;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.section-margin {
+	margin-block: 8rem;
+}
+
+.section-title {
+	font-size: 3rem;
+}
+
+.bounded {
+	width: min(1200px, 90vw);
+	margin-inline: auto;
+}
+
+.circular-image {
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.dotted-line {
+	border-bottom: 6px dotted $secondary;
+	width: 100%;
+	margin-bottom: 2rem;
+}
+
+.btn {
+	letter-spacing: 0.16rem;
+}
+
+.btn-secondary:hover {
+	background-color: transparent;
+	color: $secondary;
+}
