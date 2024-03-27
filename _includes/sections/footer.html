@@ -1,3 +1,32 @@
 <div id="footer-content">
-    FOOTER
+	<a id="footer-site-name" class="header-color text-nowrap" href="#">JonPaul Wallace</a>
+	<div id="footer-links" class="d-flex">
+		<div id="footer-sections" class="d-flex flex-column gap-1">
+			<p class="header-color mt-2 mb-1">Sections</p>
+			<a href="#about">About</a>
+			<a href="#music">Music</a>
+			<a href="#photos">Photos</a>
+			<a href="#shows">Shows</a>
+			<a href="#contact">Contact</a>
+		</div>
+		<div id="footer-streaming" class="d-flex flex-column gap-1">
+			<p class="header-color mt-2 mb-1">Streaming</p>
+			{% for platform in site.data.streaming-platforms %}
+				<a href="{{ platform.link }}">{{ platform.name }}</a>
+			{% endfor %}
+		</div>
+		<div id="footer-social-media" class="d-flex flex-column gap-1 text-nowrap">
+			<p class="header-color mt-2 mb-1">Social Media</p>
+			{% for site in site.data.social-media %}
+				<a href="{{ site.link }}">{{ site.name }}</a>
+			{% endfor %}
+		</div>
+	</div>
+	<div id="footer-emailing-list">
+		<label for="email" class="form-label heading-color mt-2 mb-3">Emailing List</label>
+		<div id="footer-emailing-list-input-and-button" class="d-flex gap-3">
+			<input type="email" name="email" class="form-control" />
+			<button type="submit" class="btn btn-secondary text-nowrap">Sign up</button>
+		</div>
+	</div>
 </div>

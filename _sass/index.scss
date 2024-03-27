@@ -89,3 +89,12 @@ footer {
 	background-color: transparent;
 	color: $secondary;
 }
+
+input {
+	background-color: var(--bs-body-color) !important;
+	color: var(--bs-body-bg) !important;
+}
+
+.header-color {
+	color: var(--bs-heading-color);
+}
