@@ -1,0 +1,9 @@
+.top-wave, .bottom-wave {
+  fill: $primary;
+  height: 70px;
+  width: 100%;
+}
+
+.top-wave {
+  rotate: (180deg);
+}

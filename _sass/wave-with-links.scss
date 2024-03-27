@@ -1,0 +1,29 @@
+.wave-with-links-section {
+
+  a {
+    text-decoration: none;
+
+    .social-media-link-wrapper {
+      svg {
+        fill: var(--bs-secondary-color);
+        transition: fill .2s ease-in-out, transform .2s ease-in-out;
+      }
+  
+      p {
+        transition: color .2s ease-in-out 0.2s;
+      }
+    }
+
+    .social-media-link-wrapper:hover {
+      svg {
+        fill: $secondary;
+        transform: rotate(5deg);
+      }
+
+      p {
+        color: $secondary;
+      }
+    }
+
+  }
+}

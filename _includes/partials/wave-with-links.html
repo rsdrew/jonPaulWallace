@@ -1,0 +1,24 @@
+{% include partials/top-wave.html %}
+
+<div class="wave-with-links-section bg-primary">
+  <div class="container pt-5 pb-5">
+    <h2 class="section-title text-center mb-5">
+      {{ include.title }}
+    </h2>
+    <div class="d-flex justify-content-around">
+
+      {% for item in include.data %}
+
+        {% include partials/link-with-text.html
+          text=item.name
+          href=item.link
+          svg=item.svg
+        %}
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+{% include partials/bottom-wave.html %}

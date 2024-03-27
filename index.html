@@ -19,14 +19,17 @@
 <body>
   <div id="background-image"></div>
   <header>
-    {% include navbar.html %}
+    {% include sections/navbar.html %}
   </header>
   <main id="content">
-    {% include hero.html %}
-    {% include about.html %}
+    {% include sections/hero.html %}
+    {% include sections/about.html %}
+    {% include sections/streaming.html %}
+    {% include sections/music.html %}
+    {% include sections/social-media.html %}
   </main>
   <footer>
-    {% include footer.html %}
+    {% include sections/footer.html %}
   </footer>
 </body>
 </html>

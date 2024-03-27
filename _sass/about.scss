@@ -1,20 +1,31 @@
-#about-image {
-  height: 400px;
-  width: 400px;
-  
-  img {
-    height: auto;
+#about {
+
+  #about-image {
+    height: 400px;
     width: 400px;
+    
+    img {
+      height: auto;
+      width: 400px;
+    }
   }
-}
-
-p.about-text {
-  background-color: $primary-faded;
-  padding: 1rem;
-  border-radius: $border-radius;
-
-  .bold-green-text {
-    font-size: 1.2rem;
-    color: $secondary;
+  
+  p.about-text {
+    background-color: $primary-faded;
+    padding: 1rem;
+    border-radius: $border-radius;
+  
+    .bold-green-text {
+      font-size: 1.2rem;
+      color: $secondary;
+    }
   }
+
+  img {
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    border-radius: $border-radius;
+  }
+
 }

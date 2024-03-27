@@ -4,23 +4,22 @@
 @import "hero";
 @import "about";
 @import "footer";
+@import "waves";
+@import "wave-with-links";
 
 /* Custom Styles */
 * {
-    transition: 0.15s ease-in-out;
+	transition: 0.15s ease-in-out;
 	letter-spacing: 0.1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
 }
 
 p {
 	line-height: 1.7rem;
 	color: var(--bs-secondary-color);
-}
-
-img {
-	border-radius: $border-radius;
-	object-fit: cover;
-	width: 100%;
-	object-position: top;
 }
 
 .hidden {
