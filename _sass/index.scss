@@ -1,25 +1,49 @@
 @import "bootstrap-override";
 @import "bootstrap-5.3.3/scss/bootstrap.scss";
+
+$heading-color: rgb(222, 226, 230);
+$body-color: #dee2e6bf;
+$dark-body-color: rgb(222, 226, 230, 0.5);
+
 @import "navbar";
 @import "hero";
 @import "about";
 @import "footer";
 @import "waves";
 @import "wave-with-links";
+@import "music";
 
 /* Custom Styles */
 * {
 	transition: 0.15s ease-in-out;
 	letter-spacing: 0.1rem;
+	color: $body-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
+	color: $heading-color;
 }
 
 p {
 	line-height: 1.7rem;
-	color: var(--bs-secondary-color);
+	color: $body-color;
+}
+
+.small-text {
+	font-size: 0.75rem;
+}
+
+.heading-color {
+	color: $heading-color;
+}
+
+.body-color {
+	color: $body-color;
+}
+
+.dark-body-color {
+	color: $dark-body-color;
 }
 
 .hidden {
@@ -83,18 +107,23 @@ footer {
 
 .btn {
 	letter-spacing: 0.16rem;
+	
+	& > i {
+		color: inherit;
+	}
 }
 
 .btn-secondary:hover {
 	background-color: transparent;
+	color: $dark-body-color;
 	color: $secondary;
+
+	& > * {
+		color: $secondary;
+	}
 }
 
 input {
 	background-color: var(--bs-body-color) !important;
 	color: var(--bs-body-bg) !important;
-}
-
-.header-color {
-	color: var(--bs-heading-color);
 }

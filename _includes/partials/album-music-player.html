@@ -1,0 +1,57 @@
+<div class="album-music-player">
+  <div class="cover-art-wrapper">
+    <img class="cover-art" src="/assets/images/AMSP-COVER-1-jpg.webp" />
+  </div>
+  <div class="album-info">
+    <p class="p-4 pb-0 mb-0">Album</p>
+    <div class="album-name pb-3 px-4 heading-color fs-3 fw-bold">A Mere Starting Place</div>
+    <div class="blue-line mx-4"></div>
+    <div class="song-list">
+      {% for song in site.data.a-mere-starting-place %}
+        <div class="song d-flex justify-content-between px-4 py-3" onclick="songOnClick(event)">
+          <div class="song-play-and-name">
+            <div class="play-wrapper pe-4 d-inline-block">
+              <!-- <svg width="16" height="16" viewBox="0 0 33 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31.5 16.4019C33.5 17.5566 33.5 20.4434 31.5 21.5981L4.5 37.1865C2.5 38.3412 -1.83141e-06 36.8979 -1.73047e-06 34.5885L-3.6768e-07 3.41154C-2.66733e-07 1.10214 2.5 -0.341235 4.5 0.813466L31.5 16.4019Z" fill="#06A68C"/>
+              </svg> -->
+              <i class="play fa fa-play"></i>
+            </div>
+            <div class="song-name d-inline-block">{{song.name}}</div>
+          </div>
+          <div class="song-length d-inline-block">{{song.length}}</div>
+          <audio src="/assets/music/{{song.filename}}" class="d-none" volume="0.5"></audio>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="seek-slider" onclick="seekSliderOnClick(event)"></div>
+    <div class="info-and-controls p-4">
+      <div class="currently-playing-wrapper">
+        <p class="small-text mb-0">PLAYING</p>
+        <p class="currently-playing-song-name heading-color">...</p>
+      </div>
+      <div class="controls">
+        <div class="song-navigation mb-3">
+          <div class="prev-song d-flex flex-column justify-content-center" onclick="previousSongOnClick()">
+            <i class="fa fa-step-backward fa-2x"></i>
+          </div>
+          <div onclick="albumPlayPauseOnClick(event)">
+            <i class="album-play-pause fa fa-play-circle fa-3x"></i>
+          </div>
+          <div class="next-song d-flex flex-column justify-content-center" onclick="nextSongOnClick()">
+            <i class="fa fa-step-forward fa-2x"></i>
+          </div>
+        </div>
+        <div class="volume-slider-wrapper d-flex justify-content-center gap-2">
+          <div class="volume-down">
+            <i class="fa fa-volume-down"></i>
+          </div>
+          <input type="range" class="volume-slider my-auto" min="1" max="100" value="50" oninput="setVolumeForAlbum(event)">
+          <div class="volume-up">
+            <i class="fa fa-volume-up"></i>
+          </div>
+        </div>
+      </div>
+      <div class="ms-auto"><span class="current-playing-song-current-time">0:00</span> <span class="dark-body-color">/</span> <span class="currently-playing-song-length heading-color">0:00</span></div>
+    </div>
+  </input>
+</div>

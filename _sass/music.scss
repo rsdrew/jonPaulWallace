@@ -1,0 +1,112 @@
+.album-music-player {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  background-color: $primary-faded;
+  border-radius: $border-radius;
+  max-height: 570px;
+  overflow: hidden;
+
+  .cover-art-wrapper {
+    height: 570px;
+    overflow: hidden;
+    position: relative;
+    border-right: 4px solid $secondary;
+
+    .cover-art {
+      height: 100%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .album-info {
+
+    .album-title {
+      font-size: 2rem;
+    }
+
+    .blue-line {
+      border-bottom: 3px solid darken($primary, 10%);
+      border-radius: $border-radius;
+    }
+
+    .song-list {
+      max-height: 315px;
+      overflow-y: scroll;
+
+      .song:hover {
+        background-color: $primary;
+        border-radius: $border-radius;
+        cursor: pointer;
+      }
+
+      .song:hover .song-name,
+      .song:hover .song-length {
+        color: $heading-color;
+      }
+    }
+
+    .seek-slider {
+      height: 5px;
+      background: linear-gradient(to right, $secondary 0%, $body-color 0%, $body-color 100%);
+    }
+
+    .info-and-controls {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      height: 135px;
+    }
+
+    .song-navigation {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      & > * {
+        margin-inline: auto;
+      }
+    }
+  }
+}
+
+.seek-slider {
+  height: 4px;
+  width: 100%;
+  appearance: none;
+}
+
+.seek-slider:hover {
+  cursor: pointer;
+}
+
+.volume-slider {
+  height: 4px;
+  background-color: $dark-body-color !important;
+  appearance: none;
+  border-radius: $border-radius;
+}
+
+.fa-play-circle,
+.fa-pause-circle,
+.fa-play,
+.fa-pause {
+  color: $secondary;
+}
+
+.fa-play-circle:hover,
+.fa-pause-circle:hover {
+  cursor: pointer;
+  color: $heading-color;
+}
+
+.prev-song:hover,
+.next-song:hover {
+  cursor: pointer;
+}
+
+.prev-song:hover i,
+.next-song:hover i {
+  color: $heading-color;
+}
