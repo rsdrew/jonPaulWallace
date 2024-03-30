@@ -1,1 +1,33 @@
-<div>Music player</div>
+<div class="single-music-player">
+  <div class="name-and-play-button d-flex justify-content-between align-items-center mb-3">
+    <div class="single-name heading-color fs-4">{{include.name}}</div>
+    <div onclick="singlePlayPauseOnClick(event)">
+      <i class="single-play-pause fa fa-play fa-3x"></i>
+      <audio src="/assets/music/{{include.filename}}" class="d-none" volume="0.5"></audio>
+    </div>
+  </div>
+  <div class="single-seek-slider seek-slider mb-3" onclick="singleSeekSliderOnClick(event)"></div>
+  <div class="d-flex justify-content-between gap-3">
+    <div class="single-volume-slider-wrapper d-flex justify-content-center gap-2">
+      <div class="volume-down">
+        <i class="fa fa-volume-down"></i>
+      </div>
+      <input
+        type="range"
+        class="volume-slider my-auto"
+        min="0"
+        max="100"
+        value="50"
+        oninput="setVolumeForSingle(event)"
+      />
+      <div class="volume-up">
+        <i class="fa fa-volume-up"></i>
+      </div>
+    </div>
+    <div>
+      <span class="currently-playing-song-current-time">0:00</span>
+      <span class="dark-body-color">/</span>
+      <span class="currently-playing-song-length heading-color">{{include.length}}</span>
+    </div>
+  </div>
+</div>

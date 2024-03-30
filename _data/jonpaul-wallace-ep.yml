@@ -1,0 +1,19 @@
+- name: Here we Go
+  length: "2:23"
+  filename: hereWeGo.mp3
+
+- name: I Am Built To Win
+  length: "2:40"
+  filename: iAmBuiltToWin.mp3
+
+- name: Say No More
+  length: "2:20"
+  filename: sayNoMore.mp3
+
+- name: Speechless
+  length: "2:40"
+  filename: speechless.mp3
+
+- name: Underlying Feelings
+  length: "2:39"
+  filename: underlyingFeelings.mp3

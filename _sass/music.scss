@@ -34,8 +34,8 @@
     }
 
     .song-list {
-      max-height: 315px;
-      overflow-y: scroll;
+      height: 315px;
+      overflow-y: auto;
 
       .song:hover {
         background-color: $primary;
@@ -47,11 +47,6 @@
       .song:hover .song-length {
         color: $heading-color;
       }
-    }
-
-    .seek-slider {
-      height: 5px;
-      background: linear-gradient(to right, $secondary 0%, $body-color 0%, $body-color 100%);
     }
 
     .info-and-controls {
@@ -72,13 +67,18 @@
 }
 
 .seek-slider {
-  height: 4px;
+  height: 6px;
   width: 100%;
   appearance: none;
+  background: linear-gradient(to right, $secondary 0%, $body-color 0%, $body-color 100%);
 }
 
 .seek-slider:hover {
   cursor: pointer;
+}
+
+.single-seek-slider {
+  border-radius: $border-radius;
 }
 
 .volume-slider {
@@ -88,18 +88,34 @@
   border-radius: $border-radius;
 }
 
-.fa-play-circle,
-.fa-pause-circle,
 .fa-play,
 .fa-pause {
   color: $secondary;
 }
 
-.fa-play-circle:hover,
-.fa-pause-circle:hover {
-  cursor: pointer;
+
+.album-play-pause::before,
+.single-play-pause::before {
+  background-color: $secondary;
   color: $heading-color;
+  font-size: 20px;
+  line-height: 50px;
+  border-radius: 50%;
+  padding: 0 16px;
+  padding-left: 17px;
+  padding-right: 15px;
+  height: 100%;
+  display: block;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out,;
 }
+
+.album-play-pause:hover::before,
+.single-play-pause:hover::before {
+  cursor: pointer;
+  background-color: $heading-color;
+  color: $secondary;
+}
+
 
 .prev-song:hover,
 .next-song:hover {
@@ -109,4 +125,20 @@
 .prev-song:hover i,
 .next-song:hover i {
   color: $heading-color;
+}
+
+.videos {
+  gap: 4rem;
+}
+
+.video > iframe {
+  border-radius: $border-radius;
+  overflow: hidden;
+}
+
+.single-music-player {
+  width: 500px;
+  background-color: $primary-faded;
+  padding: 1rem;
+  border-radius: $border-radius;
 }

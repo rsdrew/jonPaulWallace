@@ -1,0 +1,35 @@
+- name: "321"
+  length: "2:20"
+  filename: 321.mp3
+
+- name: Party Friends
+  length: "4:01"
+  filename: partyFriends.mp3
+
+- name: Never Not Lonely
+  length: "2:03"
+  filename: neverNotLonely.mp3
+
+- name: Heartbeat
+  length: "3:13"
+  filename: heartbeat.mp3
+
+- name: Love's Not For Everyone
+  length: "4:15"
+  filename: lovesNotForEveryone.mp3
+
+- name: One Day
+  length: "2:51"
+  filename: oneDay.mp3
+
+- name: Out of Time
+  length: "3:24"
+  filename: outOfTime.mp3
+
+- name: Never Ending Storyline
+  length: "3:01"
+  filename: neverEndingStoryline.mp3
+
+- name: Miss You Everytime
+  length: "3:16"
+  filename: missYouEverytime.mp3

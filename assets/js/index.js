@@ -57,41 +57,37 @@ function hideShowContent(
   showContentButtonText,
   hideContentButtonText
 ) {
-	let button = document.getElementById(buttonId);
-	let content = document.getElementById(contentId);
+  let button = document.getElementById(buttonId);
+  let content = document.getElementById(contentId);
   let arrow = button.querySelector("i.fas");
 
-	content.classList.toggle("hidden");
-	arrow.classList.toggle("fa-angle-down");
-	arrow.classList.toggle("fa-angle-up");
+  content.classList.toggle("hidden");
+  arrow.classList.toggle("fa-angle-down");
+  arrow.classList.toggle("fa-angle-up");
 
-	if (content.classList.contains("hidden")) {
-		button.innerText = `${showContentButtonText} `;
-		button.appendChild(arrow);
-		content.classList.remove("slide-in--activate");
-	} else {
-		button.innerText = `${hideContentButtonText} `;
-		button.appendChild(arrow);
-	}
+  if (content.classList.contains("hidden")) {
+    button.innerText = `${showContentButtonText} `;
+    button.appendChild(arrow);
+    content.classList.remove("slide-in--activate");
+  } else {
+    button.innerText = `${hideContentButtonText} `;
+    button.appendChild(arrow);
+  }
 
-	let buttonPosition =
-		button.getBoundingClientRect().top + window.pageYOffset - 200;
+  let buttonPosition =
+    button.getBoundingClientRect().top + window.pageYOffset - 200;
 
-	// Scroll the page to the button's position
-	window.scrollTo({
-		top: buttonPosition,
-		behavior: "smooth", // Optional: smooth scrolling effect
-	});
+  // Scroll the page to the button"s position
+  window.scrollTo({
+    top: buttonPosition,
+    behavior: "smooth", // Optional: smooth scrolling effect
+  });
 }
-
-
-
 
 // Music Player JS
 
 // The wrapper for the song that is currently playing / was most recently played.
 // Access info using query selector. It should have <audio>, .song-name, and .song-length as descendants.
-let currentSongWrapper = null;
 const songNameSelector = ".song-name";
 const songLengthSelector = ".song-length";
 const songAudioSelector = "audio";
@@ -99,150 +95,186 @@ const songPlayPauseIconSelector = ".play";
 
 // This is not inside the currentSongWrapper.
 const albumPlayPauseIconSelector = ".album-play-pause";
-const seekSliderSelector = ".seek-slider";
-const currentSongTimeSelector = ".current-playing-song-current-time";
+const albumSeekSliderSelector = ".album-seek-slider";
+const currentSongTimeSelector = ".currently-playing-song-current-time";
 
-function songOnClick(event) {
+function getCurrentSongWrapperForAlbum(albumID) {
+  let currentSongWrapper = document.getElementById(albumID).querySelector(".song.current");
+
+  if (!currentSongWrapper) {
+    const firstSongWrapper = document.getElementById(albumID).querySelector(".song-list > .song:first-child");
+    setCurrentSongWrapperForAlbum(albumID, firstSongWrapper);
+    updateAlbumCurrentlyPlayingInfo(albumID);
+    highlightCurrentlyPlayingSong(albumID);
+    currentSongWrapper = firstSongWrapper;
+  }
+
+  return currentSongWrapper;
+}
+
+function setCurrentSongWrapperForAlbum(albumID, songWrapper) {
+  const oldSong = document.getElementById(albumID).querySelector(".song.current");
+  if (oldSong) {
+    oldSong.classList.remove("current");
+  }
+
+  songWrapper.classList.add('current');
+  return songWrapper;
+}
+
+function songOnClick(event, albumID) {
   const newSongWrapper = event.currentTarget;
   const newSongAudio = newSongWrapper.querySelector(songAudioSelector);
-  const currentSongAudio = currentSongWrapper?.querySelector(songAudioSelector);
-  
+  const currentSongAudio = getCurrentSongWrapperForAlbum(albumID)?.querySelector(songAudioSelector);
+
+  // Set an interval of 1 second for updating the seek slider.
+  const albumInfo = document.getElementById(albumID);
+  if (!albumInfo.classList.contains("seek-update-running")) {
+    setInterval(() => seekUpdateForAlbum(albumID), 1000);
+    albumInfo.classList.add("seek-update-running");
+  }
+
   // Same song as before
   if (newSongAudio === currentSongAudio) {
     if (newSongAudio.paused) {
       newSongAudio.play();
-    }
-    else {
+    } else {
       newSongAudio.pause();
     }
   }
   // New song
   else {
-    dehighlightCurrentlyPlayingSong();
+    dehighlightCurrentlyPlayingSong(albumID);
     currentSongAudio?.pause();
-    updateCurrentlyPlayingSongPlayPauseIcon();
+    updateCurrentlyPlayingSongPlayPauseIcon(albumID);
 
-    currentSongWrapper = newSongWrapper;
+    setCurrentSongWrapperForAlbum(albumID, newSongWrapper);
 
-    highlightCurrentlyPlayingSong();
+    highlightCurrentlyPlayingSong(albumID);
     newSongAudio.play();
-    updateAlbumCurrentlyPlayingInfo(newSongWrapper);
-
-    // Set an interval of 1 second for updating the seek slider.
-    setInterval(seekUpdate, 1000);
+    updateAlbumCurrentlyPlayingInfo(albumID);
   }
 
-  updateCurrentlyPlayingSongPlayPauseIcon();
-  updateAlbumPlayPauseIcon();
+  updateCurrentlyPlayingSongPlayPauseIcon(albumID);
+  updateAlbumPlayPauseIcon(albumID);
 }
 
-function dehighlightCurrentlyPlayingSong() {
-  if (!currentSongWrapper) return;
+function dehighlightCurrentlyPlayingSong(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
   const currentSongName = currentSongWrapper.querySelector(songNameSelector);
-  currentSongName.classList.remove('heading-color');
-  currentSongName.classList.remove('fw-bold');
+  currentSongName.classList.remove("heading-color");
+  currentSongName.classList.remove("fw-bold");
 
-  const currentSongLength = currentSongWrapper.querySelector(songLengthSelector);
-  currentSongLength.classList.remove('heading-color');
-  currentSongLength.classList.remove('fw-bold');
+  const currentSongLength =
+    currentSongWrapper.querySelector(songLengthSelector);
+  currentSongLength.classList.remove("heading-color");
+  currentSongLength.classList.remove("fw-bold");
 }
 
-function highlightCurrentlyPlayingSong() {
+function highlightCurrentlyPlayingSong(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
   const currentSongName = currentSongWrapper.querySelector(songNameSelector);
-  currentSongName.classList.add('heading-color');
-  currentSongName.classList.add('fw-bold');
+  currentSongName.classList.add("heading-color");
+  currentSongName.classList.add("fw-bold");
 
-  const currentSongLength = currentSongWrapper.querySelector(songLengthSelector);
-  currentSongLength.classList.add('heading-color');
-  currentSongLength.classList.add('fw-bold');
+  const currentSongLength =
+    currentSongWrapper.querySelector(songLengthSelector);
+  currentSongLength.classList.add("heading-color");
+  currentSongLength.classList.add("fw-bold");
 }
 
 // Song wrapper gives context to which album player is open
-function updateAlbumCurrentlyPlayingInfo(songWrapper) {
-  const albumInfo = getAlbumInfoDivFromDescendantElement(songWrapper);
+function updateAlbumCurrentlyPlayingInfo(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
 
-  const currentlyPlayingSongName = albumInfo.querySelector('.currently-playing-song-name');
-  currentlyPlayingSongName.innerText = currentSongWrapper.querySelector(songNameSelector).innerText;
+  const albumInfo = document.getElementById(albumID);
 
-  const currentlyPlayingSongLength = albumInfo.querySelector('.currently-playing-song-length');
-  currentlyPlayingSongLength.innerText = currentSongWrapper.querySelector(songLengthSelector).innerText;
+  const currentlyPlayingSongName = albumInfo.querySelector(
+    ".currently-playing-song-name"
+  );
+  currentlyPlayingSongName.innerText =
+    currentSongWrapper.querySelector(songNameSelector).innerText;
+
+  const currentlyPlayingSongLength = albumInfo.querySelector(
+    ".currently-playing-song-length"
+  );
+  currentlyPlayingSongLength.innerText =
+    currentSongWrapper.querySelector(songLengthSelector).innerText;
 }
 
-function updateCurrentlyPlayingSongPlayPauseIcon() {
-  if (!currentSongWrapper) return;
+function updateCurrentlyPlayingSongPlayPauseIcon(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
+
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
-  const currentSongPlayPauseIcon = currentSongWrapper.querySelector(songPlayPauseIconSelector);
+  const currentSongPlayPauseIcon = currentSongWrapper.querySelector(
+    songPlayPauseIconSelector
+  );
 
   // Song is paused. Show a play icon.
   if (currentSongAudio.paused) {
-    currentSongPlayPauseIcon.classList.remove('fa-pause');
-    currentSongPlayPauseIcon.classList.add('fa-play');
+    currentSongPlayPauseIcon.classList.remove("fa-pause");
+    currentSongPlayPauseIcon.classList.add("fa-play");
   }
   // Song is playing. Show a pause icon.
   else {
-    currentSongPlayPauseIcon.classList.remove('fa-play');
-    currentSongPlayPauseIcon.classList.add('fa-pause');
+    currentSongPlayPauseIcon.classList.remove("fa-play");
+    currentSongPlayPauseIcon.classList.add("fa-pause");
   }
 }
 
-function updateAlbumPlayPauseIcon() {
-  const albumInfo = getAlbumInfoDivFromDescendantElement(currentSongWrapper);
-  const albumPlayPauseIcon = albumInfo.querySelector(albumPlayPauseIconSelector);
+function updateAlbumPlayPauseIcon(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
+
+  const albumInfo = document.getElementById(albumID);
+  const albumPlayPauseIcon = albumInfo.querySelector(
+    albumPlayPauseIconSelector
+  );
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
 
   if (currentSongAudio.paused) {
-    albumPlayPauseIcon.classList.remove('fa-pause-circle');
-    albumPlayPauseIcon.classList.add('fa-play-circle');
-  }
-  else {
-    albumPlayPauseIcon.classList.remove('fa-play-circle');
-    albumPlayPauseIcon.classList.add('fa-pause-circle');
+    albumPlayPauseIcon.classList.remove("fa-pause");
+    albumPlayPauseIcon.classList.add("fa-play");
+  } else {
+    albumPlayPauseIcon.classList.remove("fa-play");
+    albumPlayPauseIcon.classList.add("fa-pause");
   }
 }
 
-// Takes an element inside of an album player and returns the <div class="album-info"> that wraps the information section.
-function getAlbumInfoDivFromDescendantElement(descendantElement) {
-  while (!descendantElement.classList.contains('album-info')) {
-    descendantElement = descendantElement.parentElement;
-  }
-  return descendantElement;
-}
+function playCurrentSong(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
 
-function setCurrentSongToFirstSongOfAlbum(albumInfoDescendant) {
-  const albumInfo = getAlbumInfoDivFromDescendantElement(albumInfoDescendant);
-  currentSongWrapper = albumInfo.querySelector('.song-list > .song:first-child');
-}
-
-function playCurrentSong() {
-  if (!currentSongWrapper) return;
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
   currentSongAudio.play();
 }
 
-function pauseCurrentSong() {
-  if (!currentSongWrapper) return;
+function pauseCurrentSong(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
+
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
   currentSongAudio.pause();
 }
 
-function stopAndResetCurrentSong() {
-  if (!currentSongWrapper) return;
+function stopAndResetCurrentSong(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
+
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
   currentSongAudio.pause();
   currentSongAudio.currentTime = 0;
 }
 
-function albumPlayPauseOnClick(event) {
+function albumPlayPauseOnClick(event, albumID) {
   // Toggle play/pause icon
-  const playPauseIcon = event.currentTarget.querySelector('i');
-  playPauseIcon.classList.toggle('fa-play-circle');
-  playPauseIcon.classList.toggle('fa-pause-circle');
+  const playPauseIcon = event.currentTarget.querySelector("i");
+  playPauseIcon.classList.toggle("fa-play");
+  playPauseIcon.classList.toggle("fa-pause");
 
-  if (!currentSongWrapper) {
-    setCurrentSongToFirstSongOfAlbum(playPauseIcon);
-    updateAlbumCurrentlyPlayingInfo(currentSongWrapper);
-    // Set an interval of 1 second for updating the seek slider.
-    setInterval(seekUpdate, 1000);
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
+
+  // Set an interval of 1 second for updating the seek slider.
+  const albumInfo = document.getElementById(albumID);
+  if (!albumInfo.classList.contains("seek-update-running")) {
+    setInterval(() => seekUpdateForAlbum(albumID), 1000);
+    albumInfo.classList.add("seek-update-running");
   }
 
   // Play/pause the current song
@@ -250,51 +282,51 @@ function albumPlayPauseOnClick(event) {
 
   if (currentSongAudio.paused) {
     currentSongAudio.play();
-  }
-  else {
+  } else {
     currentSongAudio.pause();
   }
 
-  highlightCurrentlyPlayingSong();
-  updateCurrentlyPlayingSongPlayPauseIcon();
+  highlightCurrentlyPlayingSong(albumID);
+  updateCurrentlyPlayingSongPlayPauseIcon(albumID);
 }
 
-function previousSongOnClick() {
-  if (!currentSongWrapper) return;
+function previousSongOnClick(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
   const previousSongWrapper = currentSongWrapper.previousElementSibling;
-  if (!previousSongWrapper || !previousSongWrapper.classList.contains('song')) return;
+  if (!previousSongWrapper || !previousSongWrapper.classList.contains("song"))
+    return;
 
-  dehighlightCurrentlyPlayingSong();
-  stopAndResetCurrentSong();
-  updateCurrentlyPlayingSongPlayPauseIcon();
-  currentSongWrapper = previousSongWrapper;
-  highlightCurrentlyPlayingSong();
-  playCurrentSong();
-  updateCurrentlyPlayingSongPlayPauseIcon();
-  updateAlbumCurrentlyPlayingInfo(currentSongWrapper);
+  dehighlightCurrentlyPlayingSong(albumID);
+  stopAndResetCurrentSong(albumID);
+  updateCurrentlyPlayingSongPlayPauseIcon(albumID);
+  setCurrentSongWrapperForAlbum(albumID, previousSongWrapper);
+  highlightCurrentlyPlayingSong(albumID);
+  playCurrentSong(albumID);
+  updateCurrentlyPlayingSongPlayPauseIcon(albumID);
+  updateAlbumCurrentlyPlayingInfo(albumID);
 }
 
-function nextSongOnClick() {
-  if (!currentSongWrapper) return;
+function nextSongOnClick(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
   const nextSongWrapper = currentSongWrapper.nextElementSibling;
-  if (!nextSongWrapper || !nextSongWrapper.classList.contains('song')) return;
+  if (!nextSongWrapper || !nextSongWrapper.classList.contains("song")) return;
 
-  dehighlightCurrentlyPlayingSong();
-  stopAndResetCurrentSong();
-  updateCurrentlyPlayingSongPlayPauseIcon();
-  currentSongWrapper = nextSongWrapper;
-  highlightCurrentlyPlayingSong();
-  playCurrentSong();
-  updateCurrentlyPlayingSongPlayPauseIcon();
-  updateAlbumCurrentlyPlayingInfo(currentSongWrapper);
+  dehighlightCurrentlyPlayingSong(albumID);
+  stopAndResetCurrentSong(albumID);
+  updateCurrentlyPlayingSongPlayPauseIcon(albumID);
+  setCurrentSongWrapperForAlbum(albumID, nextSongWrapper);
+  highlightCurrentlyPlayingSong(albumID);
+  playCurrentSong(albumID);
+  updateCurrentlyPlayingSongPlayPauseIcon(albumID);
+  updateAlbumCurrentlyPlayingInfo(albumID);
 }
 
-function setVolumeForAlbum(event) {
-  const albumInfo = getAlbumInfoDivFromDescendantElement(event.currentTarget);
+function setVolumeForAlbum(event, albumID) {
+  const albumInfo = document.getElementById(albumID);
   const volume = event.currentTarget.value;
 
-  const allSongsOnAlbum = albumInfo.querySelectorAll('audio');
-  allSongsOnAlbum.forEach(audio => {
+  const allSongsOnAlbum = albumInfo.querySelectorAll("audio");
+  allSongsOnAlbum.forEach((audio) => {
     audio.volume = volume / 100;
   });
 }
@@ -302,66 +334,124 @@ function setVolumeForAlbum(event) {
 var secondaryColor = "#06a68c";
 var bodyColor = "#dee2e6bf";
 
-function seekUpdate() {
-  if (!currentSongWrapper) return;
+function seekUpdateForAlbum(albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
 
-  const albumInfo = getAlbumInfoDivFromDescendantElement(currentSongWrapper);
+  const albumInfo = document.getElementById(albumID);
 
-  let seekPosition = 0;
-
+  const seekSlider = albumInfo.querySelector(albumSeekSliderSelector);
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
+  const currentSongTime = albumInfo.querySelector(currentSongTimeSelector);
 
+  updateSeekSliderAndSongTime(seekSlider, currentSongAudio, currentSongTime, albumID);
+}
+
+function albumSeekSliderOnClick(event, albumID) {
+  const currentSongWrapper = getCurrentSongWrapperForAlbum(albumID);
+
+  const seekSlider = event.currentTarget;
+  const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
+  updateSeekSlider(event, seekSlider, currentSongAudio);
+}
+
+function singlePlayPauseOnClick(event) {
+  const playPauseButton = event.currentTarget.querySelector("i");
+  const singleAudio = event.currentTarget.querySelector("audio");
+  if (singleAudio.paused) {
+    singleAudio.play();
+    playPauseButton.classList.remove("fa-play");
+    playPauseButton.classList.add("fa-pause");
+  }
+  else {
+    singleAudio.pause();
+    playPauseButton.classList.remove("fa-pause");
+    playPauseButton.classList.add("fa-play");
+  }
+
+  // Set an interval of 1 second for updating the seek slider.
+  if (!singleAudio.classList.contains("seek-update-running")) {
+    setInterval(() => {seekUpdateForSingle(playPauseButton)}, 1000);
+    singleAudio.classList.add("seek-update-running");
+  }
+}
+
+function setVolumeForSingle(event) {
+  const volumeSlider = event.currentTarget;
+  const singleMusicPlayerDiv = getSingleMusicPlayerDivFromDescendantElement(volumeSlider);
+  const singleAudio = singleMusicPlayerDiv.querySelector("audio");
+  singleAudio.volume = volumeSlider.value / 100;
+}
+
+function getSingleMusicPlayerDivFromDescendantElement(descendantElement) {
+  while (!descendantElement.classList.contains("single-music-player")) {
+    descendantElement = descendantElement.parentElement;
+  }
+  return descendantElement;
+}
+
+function seekUpdateForSingle(descendantElement) {
+  const singleMusicPlayerDiv = getSingleMusicPlayerDivFromDescendantElement(descendantElement);
+  const singleSeekSlider = singleMusicPlayerDiv.querySelector(".single-seek-slider");
+  const audio = singleMusicPlayerDiv.querySelector("audio");
+  const currentSongTime = singleMusicPlayerDiv.querySelector(".currently-playing-song-current-time");
+  updateSeekSliderAndSongTime(singleSeekSlider, audio, currentSongTime, null);
+}
+
+function singleSeekSliderOnClick(event) {
+  const seekSlider = event.currentTarget;
+  const singleMusicPlayerDiv = getSingleMusicPlayerDivFromDescendantElement(seekSlider);
+  const audio = singleMusicPlayerDiv.querySelector("audio");
+  updateSeekSlider(event, seekSlider, audio);
+}
+
+function updateSeekSlider(event, seekSlider, audio) {
+  // Update song position
+  let clickPosition = event.clientX - seekSlider.getBoundingClientRect().left;
+  let seekPercentage = clickPosition / seekSlider.offsetWidth;
+  let newTime = seekPercentage * audio.duration;
+  audio.currentTime = newTime;
+
+  // Update background of seek slider
+  seekSlider.style.background = `linear-gradient(to right, ${secondaryColor} 0%, ${secondaryColor} ${
+    seekPercentage * 100
+  }%, ${bodyColor} ${seekPercentage * 100}%, ${bodyColor} 100%)`;
+}
+
+function updateSeekSliderAndSongTime(seekSlider, audio, currentSongTimeElement, albumID) {
   // Check if the current track duration is a legible number
-  if (isNaN(currentSongAudio.duration)) return;
+  if (isNaN(audio.duration)) return;
 
-  seekPosition = currentSongAudio.currentTime * (100 / currentSongAudio.duration);
+  let seekPosition = audio.currentTime * (100 / audio.duration);
 
-  // Update the seek slider position
-  const seekSlider = albumInfo.querySelector(seekSliderSelector);
   // Update background of seek slider
   seekSlider.style.background = `linear-gradient(to right, ${secondaryColor} 0%, ${secondaryColor} ${seekPosition}%, ${bodyColor} ${seekPosition}%, ${bodyColor} 100%)`;
 
   // Calculate the time left and the total duration
-  let currentMinutes = Math.floor(currentSongAudio.currentTime / 60);
-  let currentSeconds = Math.floor(currentSongAudio.currentTime - currentMinutes * 60);
-  let durationMinutes = Math.floor(currentSongAudio.duration / 60);
-  let durationSeconds = Math.floor(currentSongAudio.duration - durationMinutes * 60);
+  let currentMinutes = Math.floor(audio.currentTime / 60);
+  let currentSeconds = Math.floor(
+    audio.currentTime - currentMinutes * 60
+  );
+  let durationMinutes = Math.floor(audio.duration / 60);
+  let durationSeconds = Math.floor(
+    audio.duration - durationMinutes * 60
+  );
 
   // Add a zero to the single digit time values
-  if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
-  if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+  if (currentSeconds < 10) {
+    currentSeconds = "0" + currentSeconds;
+  }
+  if (durationSeconds < 10) {
+    durationSeconds = "0" + durationSeconds;
+  }
 
   // Display the updated duration
-  const currentSongTime = albumInfo.querySelector(currentSongTimeSelector);
-  currentSongTime.textContent = currentMinutes + ":" + currentSeconds;
+  currentSongTimeElement.textContent = currentMinutes + ":" + currentSeconds;
 
   // Go to next song if the current song is over
-  if (seekPosition >= 100) {
-    nextSongOnClick();
+  if (albumID && seekPosition >= 100) {
+    nextSongOnClick(albumID);
   }
 }
-
-function seekSliderOnClick(event) {
-  if (!currentSongWrapper) return;
-  const seekSlider = event.currentTarget;
-  const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
-
-  // Update song position
-  let clickPosition = event.clientX - seekSlider.getBoundingClientRect().left;
-  let seekPercentage = clickPosition / seekSlider.offsetWidth;
-  let newTime = seekPercentage * currentSongAudio.duration;
-  currentSongAudio.currentTime = newTime;
-
-  // Update background of seek slider
-  seekSlider.style.background = `linear-gradient(to right, ${secondaryColor} 0%, ${secondaryColor} ${seekPercentage * 100}%, ${bodyColor} ${seekPercentage * 100}%, ${bodyColor} 100%)`;
-}
-
-
-
-
-
-
-
 
 // //Create a volume slider for each music player
 // document.addEventListener("DOMContentLoaded", () => {

@@ -1,0 +1,17 @@
+# To get the embedSource, go to the YouTube video, click "Share", then "Embed".
+# Find where it says src="..." and copy that value.
+
+- name: Say No More - Live at Nonna's House
+  embedSource: https://www.youtube.com/embed/5Y5_evLdgu0?si=4Uo9RQul1xgMLFO2
+
+- name: 321 - Official Video
+  embedSource: https://www.youtube.com/embed/jkvbEspXcAs?si=uKnbkFqJPygsLA6s
+
+- name: Never Not Lonely - Official Video
+  embedSource: https://www.youtube.com/embed/pfQ3ogxM7Ic?si=5AJjRh9Ia4vVPjnP
+
+- name: Live at the Loving Touch
+  embedSource: https://www.youtube.com/embed/P09sM94Q2yM?si=nsybnaRznvYynxNX
+
+- name: Come Through - Live at Nonna's House
+  embedSource: https://www.youtube.com/embed/TrQ5cQ1GIvg?si=7u2qFHAwu7p-A7b9
