@@ -70,7 +70,7 @@ p {
 
 #background-image {
   content: "";
-  background-image: url("/assets/images/fun-background.jpg");
+  background-image: url("{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/images/fun-background.jpg");
   background-size: cover;
   background-position: center;
   position: fixed;

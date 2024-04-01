@@ -1,6 +1,9 @@
 <div id="{{include.id}}" class="album-music-player">
   <div class="cover-art-wrapper">
-    <img class="cover-art" src="/assets/images/{{include.photoFilename}}" />
+    <img
+      class="cover-art"
+      src="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/images/{{include.photoFilename}}"
+    />
   </div>
   <div class="album-info">
     <p class="p-4 pb-0 mb-0">{{include.subtitle}}</p>
@@ -22,14 +25,17 @@
         </div>
         <div class="song-length d-inline-block">{{song.length}}</div>
         <audio
-          src="/assets/music/{{song.filename}}"
+          src="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/music/{{song.filename}}"
           class="d-none"
           volume="0.5"
         ></audio>
       </div>
       {% endfor %}
     </div>
-    <div class="album-seek-slider seek-slider" onclick="albumSeekSliderOnClick(event, '{{include.id}}')"></div>
+    <div
+      class="album-seek-slider seek-slider"
+      onclick="albumSeekSliderOnClick(event, '{{include.id}}')"
+    ></div>
     <div class="info-and-controls p-4">
       <div class="currently-playing-wrapper">
         <p class="small-text mb-0">PLAYING</p>
