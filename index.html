@@ -32,6 +32,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      :root {
+        --baseUrl: {{site.baseurl}};
+      }
+    </style>
     <link
       rel="stylesheet"
       href="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/css/styles.css"
