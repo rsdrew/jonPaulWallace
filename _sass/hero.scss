@@ -1,6 +1,6 @@
 #hero {
   min-height: 100vh;
-  background-image: url("#{$baseUrl}/assets/images/hero-background.jpg");
+  background-image: var(--hero-background);
   background-position: right;
   background-repeat: no-repeat;
   background-color: black;
