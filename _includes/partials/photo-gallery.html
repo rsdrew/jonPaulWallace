@@ -1,0 +1,11 @@
+<h3 class="mb-3">{{include.name}}</h3>
+<div class="gallery d-flex flex-wrap gap-4">
+  {% for photo in include.photos %}
+    <div class="photo-wrapper" onclick="photoWrapperOnClick(event)">
+      <div class="photo-overlay">
+        <i class="fa fa-search"></i>
+      </div>
+      <img class="photo" src="/assets/images/{{photo}}" loading="lazy" />
+    </div>
+  {% endfor %}
+</div>

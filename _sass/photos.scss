@@ -1,0 +1,105 @@
+.photo-wrapper {
+  height: 300px;
+  width: 400px;
+  border-radius: $border-radius;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+
+  i {
+    color: transparent;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border-radius: 50%;
+    padding: .5rem;
+  }
+
+  .photo-overlay {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .photo {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &:hover {
+    border: 4px solid $secondary;
+    cursor: pointer;
+
+    & .photo-overlay {
+      background-color: rgba(0,0,0,0.25);
+    }
+
+    & i {
+      color: $heading-color;
+      background-color: black;
+    }
+  }
+}
+
+#lightbox-overlay {
+  z-index: 1031;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1032;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.75);
+  display: none;
+
+  #close-lightbox {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    z-index: 1033;
+  }
+
+  #lightbox-photo {
+    position: fixed;
+    max-height: 70vh;
+    max-width: 70vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: $border-radius;
+    overflow: hidden;
+  }
+
+  #prev-photo,
+  #next-photo {
+    position: fixed;
+    top: 50%;
+    z-index: 1033;
+  }
+
+  #prev-photo {
+    left: 5%;
+  }
+
+  #next-photo {
+    right: 5%;
+  }
+}

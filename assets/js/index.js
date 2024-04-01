@@ -453,122 +453,68 @@ function updateSeekSliderAndSongTime(seekSlider, audio, currentSongTimeElement, 
   }
 }
 
-// //Create a volume slider for each music player
-// document.addEventListener("DOMContentLoaded", () => {
-//   //Wait 1 second for the <audio> elements to load.
-//   setTimeout(setupVolumeSliders, 1000);
-// });
 
-// function setupVolumeSliders() {
-//   setupVolumeSlidersForSingles();
-//   setupVolumeSlidersForAlbums();
-// }
 
-// function setupVolumeSlidersForSingles() {
-//   const musicPlayersInfo = document.querySelectorAll(".compact-info-bottom");
+// LIGHTBOX
 
-//   musicPlayersInfo.forEach((musicPlayerInfo) => {
-//     let volumeSliderWrapper = createVolumeSlider();
+const lightbox = document.getElementById("lightbox");
+const lightboxPhoto = document.getElementById("lightbox-photo");
+const lightboxOverlay = document.getElementById("lightbox-overlay"); // Stops users from accidentally interacting with the content behind the lightbox.
+const allPhotos = document.querySelectorAll(".photo");
+let currentLightboxPhotoIndex = null;
 
-//     let spacer = document.createElement("div");
-//     spacer.classList.add("spacer");
+function photoWrapperOnClick(event) {
+  let photo = event.currentTarget.querySelector('img');
+  openLightbox(photo);
+}
 
-//     musicPlayerInfo.insertBefore(spacer, musicPlayerInfo.firstChild);
+function openLightbox(photo) {
+  lightbox.style.display = "block";
+  lightbox.style.backgroundColor = "rgba(0,0,0,0.8)";
+  lightboxOverlay.style.display = "block";
+  document.body.style.overflow = "hidden"; // Stops the users from scrolling by accident.
 
-//     musicPlayerInfo.insertBefore(
-//       volumeSliderWrapper,
-//       musicPlayerInfo.firstChild
-//     );
+  const photoIndex = getPhotoIndex(photo);
+  setLightboxPhoto(photo.src, photoIndex);
+}
 
-//     let audioElement =
-//       findNearsetAudioTagForSingleVolumeSlider(volumeSliderWrapper);
+function closeLightboxOnClick() {
+  lightbox.style.backgroundColor = "transparent";
 
-//     let volumeSliderInput = volumeSliderWrapper.querySelector("input");
+  setTimeout(() => {
+    lightbox.style.display = "none";
+    lightboxOverlay.style.display = "none";
+    document.body.style.overflow = "auto";
+  }, 200);
+}
 
-//     volumeSliderInput.addEventListener("input", () => {
-//       SetVolume(volumeSliderInput, audioElement);
-//     });
-//   });
-// }
+function setLightboxPhoto(src, photoIndex) {
+  lightboxPhoto.src = src;
+  currentLightboxPhotoIndex = photoIndex;
+}
 
-// function setupVolumeSlidersForAlbums() {
-//   //Loop through the controls of each album player. Setup the volume slider for each.
-//   let albumPlayerControlsList = document.querySelectorAll(".swp_player_bottom");
+function prevPhotoOnClick(event) {
+  if (currentLightboxPhotoIndex === 0) {
+    currentLightboxPhotoIndex = allPhotos.length - 1;
+  }
+  else {
+    currentLightboxPhotoIndex = currentLightboxPhotoIndex - 1;
+  }
+  const newPhoto = allPhotos[currentLightboxPhotoIndex];
+  setLightboxPhoto(newPhoto.src, currentLightboxPhotoIndex);
+}
 
-//   albumPlayerControlsList.forEach((albumPlayerControls) => {
-//     setupVolumeSlidersForAlbum(albumPlayerControls);
-//   });
-// }
+function nextPhotoOnClick(event) {
+  if (currentLightboxPhotoIndex === allPhotos.length - 1) {
+    currentLightboxPhotoIndex = 0;
+  }
+  else {
+    currentLightboxPhotoIndex = currentLightboxPhotoIndex + 1;
+  }
+  const newPhoto = allPhotos[currentLightboxPhotoIndex];
+  setLightboxPhoto(newPhoto.src, currentLightboxPhotoIndex);
+}
 
-// function setupVolumeSlidersForAlbum(albumPlayerControls) {
-//   let volumeSliderWrapper = createVolumeSlider();
-
-//   albumPlayerControls.appendChild(volumeSliderWrapper);
-
-//   let volumeSliderInput = volumeSliderWrapper.querySelector("input");
-
-//   let audioTags = findAllAudioTagsForAlbum(albumPlayerControls);
-
-//   volumeSliderInput.addEventListener("input", () => {
-//     audioTags.forEach((audioTag) => {
-//       SetVolume(volumeSliderInput, audioTag);
-//     });
-//   });
-// }
-
-// function createVolumeSlider() {
-//   let volumeSliderWrapper = document.createElement("div");
-//   volumeSliderWrapper.classList.add("volume-slider-wrapper");
-
-//   let muteVolumeIcon = document.createElement("i");
-//   muteVolumeIcon.classList.add("mute-volume-icon");
-//   muteVolumeIcon.classList.add("fa");
-//   muteVolumeIcon.classList.add("fa-volume-down");
-
-//   let volumeSlider = document.createElement("input");
-//   volumeSlider.classList.add("volume-slider");
-//   volumeSlider.type = "range";
-//   volumeSlider.min = "0";
-//   volumeSlider.max = "100";
-//   volumeSlider.value = "50";
-
-//   let maxVolumeIcon = document.createElement("div");
-//   maxVolumeIcon.classList.add("max-volume-icon");
-//   maxVolumeIcon.classList.add("fa");
-//   maxVolumeIcon.classList.add("fa-volume-up");
-
-//   volumeSliderWrapper.appendChild(muteVolumeIcon);
-//   volumeSliderWrapper.appendChild(volumeSlider);
-//   volumeSliderWrapper.appendChild(maxVolumeIcon);
-
-//   return volumeSliderWrapper;
-// }
-
-// function findNearsetAudioTagForSingleVolumeSlider(volumeSlider) {
-//   let swpMusicPlayer = volumeSlider.parentElement;
-
-//   while (!swpMusicPlayer.classList.contains("swp_music_player")) {
-//     swpMusicPlayer = swpMusicPlayer.parentElement;
-//   }
-
-//   let audioElement = swpMusicPlayer.querySelector("audio");
-
-//   //Set the default volume of the songs.
-//   audioElement.volume = 0.5;
-
-//   return audioElement;
-// }
-
-// function findAllAudioTagsForAlbum(albumPlayerControls) {
-//   let swpMusicPlayer = albumPlayerControls.parentElement;
-
-//   while (!swpMusicPlayer.classList.contains("swp_music_player")) {
-//     swpMusicPlayer = swpMusicPlayer.parentElement;
-//   }
-
-//   return swpMusicPlayer.querySelectorAll(".swp_music_player_entry audio");
-// }
-
-// function SetVolume(volumeSlider, audioElement) {
-//   audioElement.volume = volumeSlider.value / 100;
-// }
+function getPhotoIndex(photo) {
+  return Array.from(allPhotos).findIndex((element) => element === photo);
+}

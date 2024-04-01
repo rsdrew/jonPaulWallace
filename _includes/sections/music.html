@@ -3,7 +3,7 @@
     <h2 class="section-title">Take a Listen</h2>
     <div class="dotted-line"></div>
     {% include partials/album-music-player.html id="a-mere-starting-place" name="A Mere Starting Place" subtitle="Album" photoFilename="AMSP-COVER-1-jpg.webp" data=site.data.a-mere-starting-place %}
-    <button id="more-music-button" class="btn btn-secondary my-5" onclick="hideShowContent(
+    <button id="more-music-button" class="btn btn-secondary mt-5" onclick="hideShowContent(
       'more-music-button',
       'more-music',
       'More music',
@@ -11,7 +11,7 @@
     )">More Music <i aria-hidden="true" class="fas fa-angle-down"></i></button>
 
     <div id="more-music" class="hidden slide-in">
-      <h2>Music videos and live events</h2>
+      <h2 class="mt-5">Music videos and live events</h2>
       <div class="dotted-line"></div>
       <div class="videos d-flex flex-wrap justify-content-around mb-5">
         {% for video in site.data.music-videos %}
