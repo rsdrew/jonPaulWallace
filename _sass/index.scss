@@ -8,47 +8,53 @@ $dark-body-color: rgb(222, 226, 230, 0.5);
 @import "navbar";
 @import "hero";
 @import "about";
-@import "footer";
 @import "waves";
 @import "wave-with-links";
 @import "music";
 @import "photos";
+@import "shows";
+@import "footer";
 
 /* Custom Styles */
 * {
-	transition: 0.15s ease-in-out;
-	letter-spacing: 0.1rem;
-	color: $body-color;
+  transition: 0.15s ease-in-out;
+  letter-spacing: 0.1rem;
+  color: $body-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-weight: 700;
-	color: $heading-color;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: $heading-color;
 }
 
 p {
-	line-height: 1.7rem;
-	color: $body-color;
+  line-height: 1.7rem;
+  color: $body-color;
 }
 
 .small-text {
-	font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 
 .heading-color {
-	color: $heading-color;
+  color: $heading-color;
 }
 
 .body-color {
-	color: $body-color;
+  color: $body-color;
 }
 
 .dark-body-color {
-	color: $dark-body-color;
+  color: $dark-body-color;
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
 
 .slide-in {
@@ -63,68 +69,68 @@ p {
 }
 
 #background-image {
-	content: "";
-	background-image: url("/assets/images/fun-background.jpg");
-	background-size: cover;
-	background-position: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 200vh;
-	min-width: 100vw;
-	z-index: -100;
+  content: "";
+  background-image: url("/assets/images/fun-background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 200vh;
+  min-width: 100vw;
+  z-index: -100;
 }
 
 footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .section-margin {
-	margin-block: 8rem;
+  margin-block: 8rem;
 }
 
 .section-title {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 
 .bounded {
-	width: min(1200px, 90vw);
-	margin-inline: auto;
+  width: min(1200px, 90vw);
+  margin-inline: auto;
 }
 
 .circular-image {
-	border-radius: 50%;
-	overflow: hidden;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dotted-line {
-	border-bottom: 6px dotted $secondary;
-	width: 100%;
-	margin-bottom: 2rem;
+  border-bottom: 6px dotted $secondary;
+  width: 100%;
+  margin-bottom: 3rem;
 }
 
 .btn {
-	letter-spacing: 0.16rem;
-	
-	& > i {
-		color: inherit;
-	}
+  letter-spacing: 0.16rem;
+
+  & > i {
+    color: inherit;
+  }
 }
 
 .btn-secondary:hover {
-	background-color: transparent;
-	color: $dark-body-color;
-	color: $secondary;
+  background-color: transparent;
+  color: $dark-body-color;
+  color: $secondary;
 
-	& > * {
-		color: $secondary;
-	}
+  & > * {
+    color: $secondary;
+  }
 }
 
 input {
-	background-color: var(--bs-body-color) !important;
-	color: var(--bs-body-bg) !important;
+  background-color: var(--bs-body-color) !important;
+  color: var(--bs-body-bg) !important;
 }

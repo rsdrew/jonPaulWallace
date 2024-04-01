@@ -11,13 +11,13 @@
 		</div>
 		<div id="footer-streaming" class="d-flex flex-column gap-1">
 			<p class="heading-color mt-2 mb-1">Streaming</p>
-			{% for platform in site.data.streaming-platforms %}
+			{% for platform in site.data.links.streaming-platforms %}
 				<a href="{{ platform.link }}">{{ platform.name }}</a>
 			{% endfor %}
 		</div>
 		<div id="footer-social-media" class="d-flex flex-column gap-1 text-nowrap">
 			<p class="heading-color mt-2 mb-1">Social Media</p>
-			{% for site in site.data.social-media %}
+			{% for site in site.data.links.social-media %}
 				<a href="{{ site.link }}">{{ site.name }}</a>
 			{% endfor %}
 		</div>

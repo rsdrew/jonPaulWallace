@@ -1,0 +1,40 @@
+<section id="shows">
+  <div class="container section-margin">
+    <h2 class="section-title">Catch a show</h2>
+    <div class="dotted-line"></div>
+    {% for show in site.data.shows limit:5 %}
+
+    {% assign target_date = show.date | date: "%Y-%m-%d" %}
+    {% assign current_date = 'now' | date: "%Y-%m-%d" %}
+    
+    {% if target_date < current_date %}
+      {% assign disable_button = true %}
+    {% endif %}
+
+      <div class="show">
+        <div class="show-info p-3">
+          <p class="show-date heading-color fs-5 d-flex align-items-center m-0 slide-in">{{ show.date | date: '%B %-d, %Y' }}</p>
+          <p class="show-location d-flex align-items-center m-0 slide-in">{{ show.location }}</p>
+          <p class="show-address d-flex align-items-center m-0 small-text slide-in">
+            {{ show.address1 }}
+            {% if show.address2 != "" %}
+              </br>{{ show.address2 }}
+            {% endif %}
+          </p>
+          <div class="show-ages d-flex align-items-center ms-auto small-text slide-in">
+            {% if show.allAges %}
+              All ages
+            {% else %}
+              18+
+            {% endif %}
+          </div>
+        </div>
+        <div class="show-tickets">
+          <a href="{{ show.tickets-link }}" class="btn btn-secondary fs-5" role="button" target="_blank" {% if disable_button %}disabled{% endif %}>
+              <i class="fa fa-ticket"></i> Tickets
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

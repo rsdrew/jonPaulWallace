@@ -1,0 +1,60 @@
+.show {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 2rem;
+}
+
+.show-info {
+  background-color: $primary-faded;
+  border-radius: $border-radius;
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "date location address ages";
+  gap: 1rem;
+}
+
+.show-date {
+  grid-area: date;
+}
+
+.show-location {
+  grid-area: location;
+}
+
+.show-address {
+  grid-area: address;
+}
+
+.show-ages {
+  grid-area: ages;
+}
+
+.show-tickets {
+  a {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .show {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .show-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .show-ages {
+    margin-left: 0 !important;
+  }
+}

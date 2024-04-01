@@ -2,7 +2,7 @@
   <div class="container section-margin">
     <h2 class="section-title">Take a Listen</h2>
     <div class="dotted-line"></div>
-    {% include partials/album-music-player.html id="a-mere-starting-place" name="A Mere Starting Place" subtitle="Album" photoFilename="AMSP-COVER-1-jpg.webp" data=site.data.a-mere-starting-place %}
+    {% include partials/album-music-player.html id="a-mere-starting-place" name="A Mere Starting Place" subtitle="Album" photoFilename="AMSP-COVER-1-jpg.webp" data=site.data.music.a-mere-starting-place %}
     <button id="more-music-button" class="btn btn-secondary mt-5" onclick="hideShowContent(
       'more-music-button',
       'more-music',
@@ -14,7 +14,7 @@
       <h2 class="mt-5">Music videos and live events</h2>
       <div class="dotted-line"></div>
       <div class="videos d-flex flex-wrap justify-content-around mb-5">
-        {% for video in site.data.music-videos %}
+        {% for video in site.data.music.music-videos %}
           {% include partials/music-video.html name=video.name embedSource=video.embedSource %}
         {% endfor %}
       </div>
@@ -22,14 +22,14 @@
       <h2>Singles</h2>
       <div class="dotted-line"></div>
       <div class="d-flex flex-wrap justify-content-around gap-4">
-        {% for single in site.data.singles %}
+        {% for single in site.data.music.singles %}
           {% include partials/single-music-player.html name=single.name length=single.length filename=single.filename %}
         {% endfor %}
       </div>
 
       <h2>JonPaul Wallace EP</h2>
       <div class="dotted-line"></div>
-      {% include partials/album-music-player.html id="jonpaul-wallace-ep" name="JonPaul Wallace" subtitle="EP" photoFilename="EP-Cover-Photo.jpg.webp" data=site.data.jonpaul-wallace-ep %}
+      {% include partials/album-music-player.html id="jonpaul-wallace-ep" name="JonPaul Wallace" subtitle="EP" photoFilename="EP-Cover-Photo.jpg.webp" data=site.data.music.jonpaul-wallace-ep %}
     </div>
   </div>
 </section>

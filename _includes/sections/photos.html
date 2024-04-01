@@ -1,15 +1,18 @@
 <section id="photos">
   <div class="container section-margin">
+    <h2 class="section-title">JonPaul in action</h2>
+    <div class="dotted-line"></div>
+
     {% include partials/photo-gallery.html id="district142" name=site.data.events.district142.name photos=site.data.events.district142.photos %}
 
-    <button id="more-photos-button" class="btn btn-secondary my-5" onclick="hideShowContent(
+    <button id="more-photos-button" class="btn btn-secondary mt-5" onclick="hideShowContent(
       'more-photos-button',
       'more-photos',
       'More photos',
       'Hide photos'
     );">More photos <i aria-hidden="true" class="fas fa-angle-down"></i></button>
 
-    <div id="more-photos" class="hidden slide-in">
+    <div id="more-photos" class="hidden slide-in mt-5">
       {% include partials/photo-gallery.html id="theLovingTouch" name=site.data.events.theLovingTouch.name photos=site.data.events.theLovingTouch.photos %}
       <div class="mb-5"></div>
       {% include partials/photo-gallery.html id="liveFromNonnasHouse" name=site.data.events.liveFromNonnasHouse.name photos=site.data.events.liveFromNonnasHouse.photos %}
