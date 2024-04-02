@@ -29,3 +29,12 @@
   }
 
 }
+
+@media (max-width: 600px) {
+  #about #about-image,
+  #about #about-image img {
+      width: 85vw;
+      height: 85vw;
+      object-position: center;
+    }
+}

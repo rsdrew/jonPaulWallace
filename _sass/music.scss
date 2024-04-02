@@ -142,3 +142,19 @@
   padding: 1rem;
   border-radius: $border-radius;
 }
+
+@media (max-width: 600px) {
+  .single-music-player {
+    width: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .album-music-player {
+    grid-template-columns: 1fr;
+  }
+
+  .cover-art-wrapper {
+    display: none !important;
+  }
+}
