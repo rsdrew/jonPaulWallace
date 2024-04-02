@@ -1,0 +1,9 @@
+@media (max-width: 800px) {
+  #emailing-list-form {
+    flex-wrap: wrap;
+
+    & > * {
+      width: 100%;
+    }
+  }
+}
