@@ -1,0 +1,25 @@
+#contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  #message {
+    height: 400px;
+    resize: none;
+
+  }
+
+  #contact-photo {
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 1200px) {
+  #contact-grid {
+    grid-template-columns: 1fr;
+
+    #contact-photo {
+      display: none;
+    }
+  }
+}

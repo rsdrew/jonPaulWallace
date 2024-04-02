@@ -15,6 +15,7 @@ $baseUrl: var(--baseUrl);
 @import "music";
 @import "photos";
 @import "shows";
+@import "contact";
 @import "footer";
 
 /* Custom Styles */
@@ -132,7 +133,8 @@ footer {
   }
 }
 
-input {
+input, textarea {
   background-color: var(--bs-body-color) !important;
   color: var(--bs-body-bg) !important;
+  transition: color 9999s ease-in-out, background-color 9999s ease-in-out !important; // Stops autofill from changing the color of the text.
 }

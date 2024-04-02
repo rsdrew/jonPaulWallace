@@ -13,15 +13,15 @@
 
       <div class="show">
         <div class="show-info p-3">
-          <p class="show-date heading-color fs-5 d-flex align-items-center m-0 slide-in">{{ show.date | date: '%B %-d, %Y' }}</p>
-          <p class="show-location d-flex align-items-center m-0 slide-in">{{ show.location }}</p>
-          <p class="show-address d-flex align-items-center m-0 small-text slide-in">
+          <p class="show-date heading-color fs-5 d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.date | date: '%B %-d, %Y' }}</p>
+          <p class="show-location d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.location }}</p>
+          <p class="show-address d-flex align-items-center justify-content-center m-0 small-text slide-in">
             {{ show.address1 }}
             {% if show.address2 != "" %}
               </br>{{ show.address2 }}
             {% endif %}
           </p>
-          <div class="show-ages d-flex align-items-center ms-auto small-text slide-in">
+          <div class="show-ages d-flex align-items-center justify-content-center small-text text-center slide-in">
             {% if show.allAges %}
               All ages
             {% else %}

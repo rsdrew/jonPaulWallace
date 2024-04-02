@@ -8,10 +8,15 @@
   background-color: $primary-faded;
   border-radius: $border-radius;
   display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "date location address ages";
   gap: 1rem;
+
+  & > *:not(:last-child) {
+    border-right: 2px solid $secondary;
+    padding-right: 1rem;
+  }
 }
 
 .show-date {
@@ -52,6 +57,15 @@
   .show-info {
     display: flex;
     flex-direction: column;
+
+    & > *:not(:last-child) {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    & > * {
+      text-align: center;
+    }
   }
 
   .show-ages {

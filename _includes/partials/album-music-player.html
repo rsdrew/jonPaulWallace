@@ -2,7 +2,7 @@
   <div class="cover-art-wrapper">
     <img
       class="cover-art"
-      src="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/images/{{include.photoFilename}}"
+      src="{{ site.baseurl }}/assets/images/{{include.photoFilename}}"
     />
   </div>
   <div class="album-info">
@@ -25,7 +25,7 @@
         </div>
         <div class="song-length d-inline-block">{{song.length}}</div>
         <audio
-          src="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/music/{{song.filename}}"
+          src="{{ site.baseurl }}/assets/music/{{song.filename}}"
           class="d-none"
           volume="0.5"
         ></audio>

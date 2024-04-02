@@ -40,10 +40,10 @@
     </style>
     <link
       rel="stylesheet"
-      href="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/css/styles.css"
+      href="{{ site.baseurl }}/assets/css/styles.css"
     />
     <script
-      src="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/js/index.js"
+      src="{{ site.baseurl }}/assets/js/index.js"
       defer
     ></script>
     <title>JonPaul Wallace</title>
@@ -52,10 +52,11 @@
     <div id="background-image"></div>
     <header>{% include sections/navbar.html %}</header>
     <main id="content">
-      {% include sections/hero.html %} {% include sections/about.html %} {%
-      include sections/streaming.html %} {% include sections/music.html %} {%
-      include sections/social-media.html %} {% include sections/photos.html %}
+      {% include sections/hero.html %} {% include sections/about.html %}
+      {% include sections/streaming.html %} {% include sections/music.html %}
+      {% include sections/social-media.html %} {% include sections/photos.html %}
       {% include sections/shows.html %}
+      {% include sections/contact.html %}
     </main>
     <footer>{% include sections/footer.html %}</footer>
   </body>

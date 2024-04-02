@@ -6,7 +6,7 @@
     <div onclick="singlePlayPauseOnClick(event)">
       <i class="single-play-pause fa fa-play fa-3x"></i>
       <audio
-        src="{% if jekyll.environment == 'production' %}{{ site.baseurl }}{% endif %}/assets/music/{{include.filename}}"
+        src="{{ site.baseurl }}/assets/music/{{include.filename}}"
         class="d-none"
         volume="0.5"
       ></audio>
