@@ -154,7 +154,27 @@
     grid-template-columns: 1fr;
   }
 
-  .cover-art-wrapper {
+  .info-and-controls {
+    grid-template-columns: 1fr !important;
+  }
+
+  .song-list {
+    height: 290px !important;
+  }
+
+  .cover-art-wrapper,
+  .song-length,
+  .currently-playing-wrapper,
+  .currently-playing-song-timer {
     display: none !important;
+  }
+
+  .play-wrapper {
+    padding-right: 0.5rem !important;
+  }
+
+  .video-wrapper,
+  .video-wrapper * {
+    max-width: 100%;
   }
 }
