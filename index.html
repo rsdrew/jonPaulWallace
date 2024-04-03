@@ -38,26 +38,22 @@
         --hero-background: url("{{site.baseurl}}/assets/images/hero-background.jpg");
       }
     </style>
-    <link
-      rel="stylesheet"
-      href="{{ site.baseurl }}/assets/css/styles.css"
-    />
-    <script
-      src="{{ site.baseurl }}/assets/js/index.js"
-      defer
-    ></script>
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css" />
+    <script src="{{ site.baseurl }}/assets/js/index.js" defer></script>
+    <script src="{{ site.baseurl }}/assets/js/lightbox.js" defer></script>
+    <script src="{{ site.baseurl }}/assets/js/music.js" defer></script>
+    <script src="{{ site.baseurl }}/assets/js/popup.js" defer></script>
     <title>JonPaul Wallace</title>
   </head>
   <body>
     <div id="background-image"></div>
     <header>{% include sections/navbar.html %}</header>
     <main id="content">
-      {% include sections/hero.html %} {% include sections/about.html %}
-      {% include sections/streaming.html %} {% include sections/music.html %}
-      {% include sections/social-media.html %} {% include sections/photos.html %}
-      {% include sections/shows.html %}
-      {% include sections/emailing-list.html %}
-      {% include sections/contact.html %}
+      {% include sections/hero.html %} {% include sections/about.html %} {%
+      include sections/streaming.html %} {% include sections/music.html %} {%
+      include sections/social-media.html %} {% include sections/photos.html %}
+      {% include sections/shows.html %} {% include sections/emailing-list.html
+      %} {% include sections/contact.html %} {% include partials/popup.html %}
     </main>
     <footer>{% include sections/footer.html %}</footer>
   </body>

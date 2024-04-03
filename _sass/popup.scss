@@ -1,0 +1,49 @@
+#popup {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: $border-radius;
+  z-index: 9999;
+}
+
+#popup-background {
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 9998;
+}
+
+#popup,
+#popup-background {
+  position: fixed;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: $body-color;
+}
+
+#popup-close:hover {
+  color: $heading-color;
+}
+
+@media (max-width: 1200px) {
+  #popup {
+    #emailing-list-form {
+      flex-wrap: wrap;
+
+      & > * {
+        width: 100%;
+      }
+    }
+  }
+}
