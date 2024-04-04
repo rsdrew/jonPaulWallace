@@ -35,8 +35,6 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      - name: Check if file exists
-        run: ls -l ./_site/assets/css/styles.css
       - name: Update css file permissions 1
         run: sudo chmod -R u+w ./_site/assets/css/
       - name: Update css file permissions 2
@@ -44,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run PurgeCSS
-        run: npx purgecss -c ./purgecss.config.js
+        run: sudo npx purgecss -c ./purgecss.config.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
