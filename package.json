@@ -1,0 +1,18 @@
+{
+  "name": "jonpaulwallace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "purgecss.config.js",
+  "scripts": {
+    "build_dev": "JEKYLL_ENV=development bundle exec jekyll build --config purgecss.config.js --out assets/css/",
+    "build_prod": "JEKYLL_ENV=production bundle exec jekyll build",
+    "run_dev": "JEKYLL_ENV=development bundle exec jekyll serve",
+    "ru_prod": "JEKYLL_ENV=production bundle exec jekyll serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "purgecss": "^6.0.0"
+  }
+}

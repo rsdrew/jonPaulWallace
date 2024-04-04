@@ -4,3 +4,4 @@ _site
 .jekyll-metadata
 vendor/bundle
 _config.yml
+node_modules
