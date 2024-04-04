@@ -35,6 +35,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Update css file permissions
+        run: chmod u+w ./_site/assets/css/styles.css
       - name: Install dependencies
         run: npm install
       - name: Run PurgeCSS
