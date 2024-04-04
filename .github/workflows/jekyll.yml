@@ -35,6 +35,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Check if file exists
+        run: ls -l ./_site/assets/css/styles.css
       - name: Update css file permissions 1
         run: sudo chmod -R u+w ./_site/assets/css/
       - name: Update css file permissions 2
