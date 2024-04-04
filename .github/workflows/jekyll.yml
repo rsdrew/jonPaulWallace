@@ -35,12 +35,10 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      - name: Log file owner
-        run: ls -ld ./_site/assets/css/
       - name: Update css file permissions 1
-        run: chmod -R u+w ./_site/assets/css/
+        run: sudo chmod -R u+w ./_site/assets/css/
       - name: Update css file permissions 2
-        run: chmod u+w ./_site/assets/css/styles.css
+        run: sudo chmod u+w ./_site/assets/css/styles.css
       - name: Install dependencies
         run: npm install
       - name: Run PurgeCSS
