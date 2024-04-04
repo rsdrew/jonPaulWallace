@@ -35,6 +35,8 @@ jobs:
         with:
           source: ./
           destination: ./_site
+      - name: Log file owner
+        run: ls -ld ./_site/assets/css/
       - name: Update css file permissions 1
         run: chmod -R u+w ./_site/assets/css/
       - name: Update css file permissions 2
