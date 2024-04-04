@@ -1,4 +1,5 @@
 module.exports = {
-  content: ['_site/**/*.html'],
-  css: ['_site/assets/css/*.css']
-}
+  content: ["./_site/index.html"],
+  css: ["./_site/assets/css/styles.css", "./_site/assets/css/main.css"],
+  output: "./",
+};
