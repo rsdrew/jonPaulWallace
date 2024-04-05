@@ -5,3 +5,4 @@ _site
 vendor/bundle
 _config.yml
 node_modules
+.env

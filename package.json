@@ -13,6 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "purgecss": "^6.0.0"
+    "purgecss": "^6.0.0",
+    "tinacms": "^1.6.1"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^1.5.43",
+    "@types/node": "^20.12.4"
   }
 }
