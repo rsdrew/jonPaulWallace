@@ -5,7 +5,7 @@
         <div id="about-image" class="circular-image mx-auto mb-4 mb-lg-0">
           <img
             loading="lazy"
-            src="{{ site.baseurl }}/assets/images/JPW-12-min-scaled.jpg.webp"
+            src="{{ site.baseurl }}/assets/{{ site.data.about.aboutPhoto }}"
             alt="JonPaul Wallace"
             loading="lazy"
           />
@@ -13,13 +13,10 @@
       </div>
       <div class="col-lg">
         <div>
-          <h2 class="section-title">About JonPaul</h2>
+          <h2 class="section-title">{{ site.data.about.title }}</h2>
           <div class="dotted-line"></div>
           <p class="mb-5">
-            JonPaul Wallace, a soul pop artist from metro Detroit, creates music
-            to make you feel something. JonPaul’s unique skill set as a vocalist
-            and writer allows him to do things many artists can’t, and
-            attributes to his distinctive style.
+            {{ site.data.about.aboutIntro }}
           </p>
           <button
             id="about-learn-more-button"
@@ -27,137 +24,44 @@
             onclick="hideShowContent(
             'about-learn-more-button',
             'about-learn-more',
-            'Learn more',
-            'Hide info'
+            '{{ site.data.about.aboutShowMoreButtonText }}',
+            '{{ site.data.about.aboutHideInfoButtonText }}'
           );"
           >
-            Learn more <i aria-hidden="true" class="fas fa-angle-down"></i>
+          {{ site.data.about.aboutShowMoreButtonText }} <i aria-hidden="true" class="fas fa-angle-down"></i>
           </button>
         </div>
       </div>
     </div>
 
     <div id="about-learn-more" class="hidden slide-in">
-      <div class="row mt-5">
-        <div class="col-lg-6">
-          <p class="about-text">
-            <span class="bold-green-text">JonPaul’s story</span> started in a
-            small town in Michigan, north of Detroit. JonPaul followed in the
-            footsteps of his sister, Rocky Wallace, in pursuing a career as an
-            artist.
-          </p>
-          <p class="about-text">
-            <span class="bold-green-text">Singing since 6 years old</span>, he
-            saw his first glimpse of worldwide attention when a video of him
-            performing his rendition of “7 Years” by Lukas Graham at his high
-            school graduation surfaced on the internet. The video was captured
-            by a classmate’s father and uploaded online, unbeknown to JonPaul.
-            That video quickly started circulating the internet, generating over
-            20 million views worldwide.
-          </p>
+      {% for blurb in site.data.about.aboutBlurb %}
+        {% assign mod = forloop.index | modulo: 2 %}
+        <div class="row mt-5">
+          <div class="col-lg-6">
+            <p class="about-text">
+              <span class="bold-green-text">{{ blurb.highlightedBlurb1 }}</span> {{ blurb.blurb1 }}
+            </p>
+            <p class="about-text">
+              <span class="bold-green-text">{{ blurb.highlightedBlurb2 }}</span> {{ blurb.blurb2 }}
+            </p>
+          </div>
+          <div class="col-lg-6 {% if mod == 0 %} order-first {% endif %}">
+            <img
+              class="mb-3"
+              loading="lazy"
+              src="{{ site.baseurl }}/assets{{ blurb.blurbImage }}"
+              height="400px"
+            />
+          </div>
         </div>
-        <div class="col-lg-6">
-          <img
-            class="mb-3"
-            loading="lazy"
-            src="{{ site.baseurl }}/assets/images/jpw-solo-playing-min-scaled.jpg.webp"
-            height="400px"
-          />
-        </div>
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-lg-6">
-          <img
-            class="mb-3"
-            loading="lazy"
-            src="{{ site.baseurl }}/assets/images/E49A2843-min-scaled.jpg.webp"
-            height="400px"
-          />
-        </div>
-        <div class="col-lg-6">
-          <p class="about-text">
-            <span class="bold-green-text">Following that craze</span>, JonPaul
-            catapulted along his journey to discovering who he is as a person,
-            and as an artist. He has dialed in his style as a writer, a singer,
-            a performer. JonPaul has released over 15 songs on digital platforms
-            and played hundreds of shows around Michigan and beyond.
-          </p>
-          <p class="about-text">
-            <span class="bold-green-text">Some notable shows</span> he’s played
-            include opening for Patti Labelle at The Sound Board, performing at
-            SXSW, District 142, Aretha’s Jazz Café, The Loving Touch, and many
-            more. He has also had music placed in a variety of television
-            programs; including March Madness broadcasts, NFL and NCAA Football
-            broadcasts, and numerous reality television shows such as Love
-            Island, Cash or Trash, Cribs, Love is Blind, and more.
-          </p>
-        </div>
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-lg-6">
-          <p class="about-text">
-            <span class="bold-green-text">JonPaul’s current full band</span>
-            performance setup consists of himself on keyboards, guitar, and
-            vocals; Anthony Fiolek on drums; Ryan Haley on guitar and bass. This
-            trio brings enough energy to light up any sized room, and infect fun
-            into any crowd.
-          </p>
-          <p class="about-text">
-            <span class="bold-green-text"
-              >Whether they’re opening for another act</span
-            >, or playing in front of mainly their audience, they know how to
-            get a room singing, dancing, clapping, and having a great time. Make
-            sure to sign up for the email list to stay up to date on where
-            they’re playing!
-          </p>
-        </div>
-        <div class="col-lg-6">
-          <img
-            class="mb-3"
-            loading="lazy"
-            src="{{ site.baseurl }}/assets/images/jpw-full-band-min-scaled.jpg.webp"
-            height="400px"
-          />
-        </div>
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-lg-6">
-          <img
-            class="mb-3"
-            loading="lazy"
-            src="{{ site.baseurl }}/assets/images/live-from-nonnas-house-cropped-min-scaled.jpg.webp"
-            height="400px"
-          />
-        </div>
-        <div class="col-lg-6">
-          <p class="about-text">
-            <span class="bold-green-text">Another current project</span> curated
-            by JonPaul and his team is the “Live from Nonna’s House” video
-            series. In this series, JonPaul and his friends got together to
-            create personal, intimate, stripped-down performances in JonPaul’s
-            Nonna’s living room.
-          </p>
-          <p class="about-text">
-            <span class="bold-green-text">The idea of the project</span> is to
-            invite collaborators and viewers into the very personal space where
-            JonPaul experienced a lot of fond, core memories in his childhood.
-            It also portrays JonPaul’s music in a light that is quite different
-            from his live shows. His shows are traditionally very high energy
-            and full speed, whereas in the “Live from Nonna’s House”
-            performances, the band can scale back and create a more intimate
-            performance.
-          </p>
-        </div>
-      </div>
+      {% endfor %}
 
       <a
         class="btn btn-secondary mt-5"
-        href="https://www.youtube.com/watch?v=TrQ5cQ1GIvg&ab_channel=JonPaulWallace"
+        href="{{ site.data.about.aboutCTALink }}"
         target="_blank"
-        >Watch "Live from Nonna's House!</a
+        >{{ site.data.about.aboutCTAText }}</a
       >
     </div>
   </div>
