@@ -45,7 +45,7 @@ jobs:
         env:
           TINA_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-          TINA_BRANCH: main
+          TINA_BRANCH: "main"
         run: npx tinacms build
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "/jonPaulWallace"
