@@ -5,7 +5,7 @@
         <div id="about-image" class="circular-image mx-auto mb-4 mb-lg-0">
           <img
             loading="lazy"
-            src="{{ site.baseurl }}/assets/{{ site.data.about.aboutPhoto }}"
+            src="{{ site.baseurl }}/assets/{{ site.data.about.about.aboutPhoto }}"
             alt="JonPaul Wallace"
             loading="lazy"
           />
@@ -13,10 +13,10 @@
       </div>
       <div class="col-lg">
         <div>
-          <h2 class="section-title">{{ site.data.about.title }}</h2>
+          <h2 class="section-title">{{ site.data.about.about.title }}</h2>
           <div class="dotted-line"></div>
           <p class="mb-5">
-            {{ site.data.about.aboutIntro }}
+            {{ site.data.about.about.aboutIntro }}
           </p>
           <button
             id="about-learn-more-button"
@@ -24,18 +24,18 @@
             onclick="hideShowContent(
             'about-learn-more-button',
             'about-learn-more',
-            '{{ site.data.about.aboutShowMoreButtonText }}',
-            '{{ site.data.about.aboutHideInfoButtonText }}'
+            '{{ site.data.about.about.aboutShowMoreButtonText }}',
+            '{{ site.data.about.about.aboutHideInfoButtonText }}'
           );"
           >
-          {{ site.data.about.aboutShowMoreButtonText }} <i aria-hidden="true" class="fas fa-angle-down"></i>
+          {{ site.data.about.about.aboutShowMoreButtonText }} <i aria-hidden="true" class="fas fa-angle-down"></i>
           </button>
         </div>
       </div>
     </div>
 
     <div id="about-learn-more" class="hidden slide-in">
-      {% for blurb in site.data.about.aboutBlurb %}
+      {% for blurb in site.data.about.about.aboutBlurb %}
         {% assign mod = forloop.index | modulo: 2 %}
         <div class="row mt-5">
           <div class="col-lg-6">
@@ -59,9 +59,9 @@
 
       <a
         class="btn btn-secondary mt-5"
-        href="{{ site.data.about.aboutCTALink }}"
+        href="{{ site.data.about.about.aboutCTALink }}"
         target="_blank"
-        >{{ site.data.about.aboutCTAText }}</a
+        >{{ site.data.about.about.aboutCTAText }}</a
       >
     </div>
   </div>
