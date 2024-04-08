@@ -3,7 +3,9 @@
     <h2 class="section-title">JonPaul in action</h2>
     <div class="dotted-line"></div>
 
-    {% include partials/photo-gallery.html id="district142" name=site.data.events.district142.name photos=site.data.events.district142.photos %}
+    {% assign firstEvent = site.data.photos.photos.events[0] %}
+
+    {% include partials/photo-gallery.html name=firstEvent.name photos=firstEvent.images %}
 
     <button id="more-photos-button" class="btn btn-secondary mt-5" onclick="hideShowContent(
       'more-photos-button',
@@ -13,9 +15,10 @@
     );">More photos <i aria-hidden="true" class="fas fa-angle-down"></i></button>
 
     <div id="more-photos" class="hidden slide-in mt-5">
-      {% include partials/photo-gallery.html id="theLovingTouch" name=site.data.events.theLovingTouch.name photos=site.data.events.theLovingTouch.photos %}
-      <div class="mb-5"></div>
-      {% include partials/photo-gallery.html id="liveFromNonnasHouse" name=site.data.events.liveFromNonnasHouse.name photos=site.data.events.liveFromNonnasHouse.photos %}
+      {% for event in site.data.photos.photos.events offset:1 %}
+        {% include partials/photo-gallery.html name=event.name photos=event.images %}
+        <div class="mb-5"></div>
+      {% endfor %}
     </div>
     {% include partials/lightbox.html %}
   </div>

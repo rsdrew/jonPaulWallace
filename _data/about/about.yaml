@@ -7,7 +7,7 @@ aboutIntro: >-
   JonPaul Wallace, a soul pop artist from metro Detroit, creates music to make
   you feel something. JonPaul’s unique skill set as a vocalist and writer allows
   him to do things many artists can’t, and attributes to his distinctive style.
-aboutPhoto: /images/JPW-12-min-scaled.jpg.webp
+aboutPhoto: /images/about-section/JPW-12-min-scaled.jpg.webp
 aboutShowMoreButtonText: Learn More
 aboutHideInfoButtonText: Hide Info
 aboutBlurb:
@@ -24,7 +24,7 @@ aboutBlurb:
       classmate’s father and uploaded online, unbeknown to JonPaul. That video
       quickly started circulating the internet, generating over 20 million views
       worldwide.
-    blurbImage: /images/jpw-solo-playing-min-scaled.jpg.webp
+    blurbImage: /images/about-section/jpw-solo-playing-min-scaled.jpg.webp
   - highlightedBlurb1: 'Following that craze,'
     blurb1: >-
       JonPaul catapulted along his journey to discovering who he is as a person,
@@ -39,7 +39,7 @@ aboutBlurb:
       programs; including March Madness broadcasts, NFL and NCAA Football
       broadcasts, and numerous reality television shows such as Love Island,
       Cash or Trash, Cribs, Love is Blind, and more.
-    blurbImage: /images/E49A2843-min-scaled.jpg.webp
+    blurbImage: /images/about-section/E49A2843-min-scaled.jpg.webp
   - highlightedBlurb1: JonPaul’s current full band
     blurb1: >-
       performance setup consists of himself on keyboards, guitar, and vocals;
@@ -50,7 +50,7 @@ aboutBlurb:
       or playing in front of mainly their audience, they know how to get a room
       singing, dancing, clapping, and having a great time. Make sure to sign up
       for the email list to stay up to date on where they’re playing!
-    blurbImage: /images/jpw-full-band-min-scaled.jpg.webp
+    blurbImage: /images/about-section/jpw-full-band-min-scaled.jpg.webp
   - highlightedBlurb1: Another current project
     blurb1: >-
       curated by JonPaul and his team is the “Live from Nonna’s House” video
@@ -65,6 +65,6 @@ aboutBlurb:
       shows. His shows are traditionally very high energy and full speed,
       whereas in the “Live from Nonna’s House” performances, the band can scale
       back and create a more intimate performance.
-    blurbImage: /images/live-from-nonnas-house-cropped-min-scaled.jpg.webp
+    blurbImage: /images/about-section/live-from-nonnas-house-cropped-min-scaled.jpg.webp
 aboutCTAText: Watch "Live from Nonna's House!"
 aboutCTALink: 'https://www.youtube.com/watch?v=TrQ5cQ1GIvg&ab_channel=JonPaulWallace'

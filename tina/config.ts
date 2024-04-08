@@ -18,8 +18,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "./assets",
+      publicFolder: "assets",
+      mediaRoot: ""
     },
   },
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
@@ -108,8 +108,8 @@ export default defineConfig({
         format: "yaml",
         fields: [
           {
-            name: "photosSection",
-            label: "Event",
+            name: "events",
+            label: "Events",
             type: "object",
             list: true,
             fields: [
@@ -125,7 +125,17 @@ export default defineConfig({
                 list: true
               }
             ]
-          }
+          },
+          {
+            name: "morePhotosButtonText",
+            label: "More Photos Button Text",
+            type: "string"
+          },
+          {
+            name: "hidePhotosButtonText",
+            label: "Hide Photos Button Text",
+            type: "string"
+          },
         ]
       },
       {

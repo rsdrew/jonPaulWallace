@@ -1,6 +1,32 @@
-photosSection:
+events:
   - name: District 142
     images:
-      - /images/IMG_3232-min.jpg.webp
-      - /images/E49A2942-min-scaled.jpeg.webp
-      - /images/E49A2843-min-scaled.jpg.webp
+      - /images/photos-section/district142/E49A2843-min-scaled.jpg.webp
+      - /images/photos-section/district142/E49A2850-min-scaled.jpg.webp
+      - /images/photos-section/district142/E49A2853-min-scaled.jpg.webp
+      - /images/photos-section/district142/E49A2856-min-scaled.jpg.webp
+      - /images/photos-section/district142/E49A2942-min-scaled.jpeg.webp
+      - /images/photos-section/district142/IMG_3232-min.jpg.webp
+      - /images/photos-section/district142/IMG_3239-min.jpg.webp
+  - name: The Loving Touch
+    images:
+      - /images/photos-section/theLovingTouch/DSC09981-min-scaled.jpeg.webp
+      - /images/photos-section/theLovingTouch/DSC09981-min-scaled.jpeg.webp
+      - /images/photos-section/theLovingTouch/JPW-02-min-scaled.jpg.webp
+      - /images/photos-section/theLovingTouch/JPW-12-min-scaled.jpg.webp
+      - /images/photos-section/theLovingTouch/JPW-20-min-scaled.jpg.webp
+  - name: Live from Nonna's House
+    images:
+      - >-
+        /images/photos-section/liveFromNonnasHouse/0M2A0603-2-min-scaled.jpg.webp
+      - /images/photos-section/liveFromNonnasHouse/0M2A0623-min-scaled.jpg.webp
+      - /images/photos-section/liveFromNonnasHouse/0M2A0688-min-scaled.jpg.webp
+      - /images/photos-section/liveFromNonnasHouse/4R3A0018-min-scaled.jpg.webp
+      - /images/photos-section/liveFromNonnasHouse/4R3A0287-min-scaled.jpg.webp
+      - >-
+        /images/photos-section/liveFromNonnasHouse/TATC5567-2-min-scaled.jpg.webp
+      - /images/photos-section/liveFromNonnasHouse/TATC5634-min-scaled.jpg.webp
+      - >-
+        /images/photos-section/liveFromNonnasHouse/live-from-nonnas-house-cropped-min-scaled.jpg.webp
+morePhotosButtonText: More photos
+hidePhotosButtonText: Hide photos
