@@ -157,7 +157,7 @@ export default defineConfig({
               },
               {
                 name: "icon",
-                label: "Image",
+                label: "Image (Must be a .svg file of size 144x144)",
                 type: "image"
               }
             ]

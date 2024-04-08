@@ -2,7 +2,7 @@ title: Follow JonPaul on social media
 app:
   - name: TikTok
     link: 'https://www.tiktok.com/@jonpaulwallace'
-    icon: /images/icons8-tik-tok.svg
+    icon: /images/tik-tok.svg
   - name: Instagram
     link: 'https://www.instagram.com/jonpaulwallace/'
     icon: /images/instagram2.svg
