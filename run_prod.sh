@@ -4,4 +4,4 @@
 export JEKYLL_ENV=production
 
 # Run Jekyll
-bundle exec jekyll serve --watch 
+npx tinacms build -c "jekyll serve"

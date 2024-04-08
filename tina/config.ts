@@ -135,6 +135,11 @@ export default defineConfig({
         format: "yaml",
         fields: [
           {
+            name: "title",
+            label: "Section Title",
+            type: "string"
+          },
+          {
             name: "app",
             label: "App",
             type: "object",

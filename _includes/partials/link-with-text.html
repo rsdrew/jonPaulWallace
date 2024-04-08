@@ -1,7 +1,9 @@
 <div>
   <a href="{{ include.href }}" target="_blank" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="social-media-link-wrapper d-flex flex-column align-items-center">
-      {{ include.svg | markdownify }}
+    <div class="app-link-wrapper d-flex flex-column align-items-center">
+      <div class="app-link-icon-wrapper">
+        <img class="app-link-icon" src="{{ site.baseurl }}/assets{{ include.icon }}" height="144px" width="144px" alt="{{ include.text }} logo" />
+      </div>
       <p class="mt-3 mb-0">{{ include.text }}</p>
     </div>
   </a>

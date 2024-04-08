@@ -1,7 +1,0 @@
-socialMediaApp:
-  - socialMediaName: TikTok
-    socialMediaLink: 'https://www.tiktok.com/@jonpaulwallace'
-    socialMediaIcon: /images/icons8-tik-tok.svg
-  - socialMediaName: Instagram
-    socialMediaLink: 'https://www.instagram.com/jonpaulwallace/'
-    socialMediaIcon: /images/instagram2.svg

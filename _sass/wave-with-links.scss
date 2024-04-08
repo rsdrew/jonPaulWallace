@@ -3,20 +3,16 @@
   a {
     text-decoration: none;
 
-    .social-media-link-wrapper {
-      svg {
-        fill: var(--bs-secondary-color);
-        transition: fill .2s ease-in-out, transform .2s ease-in-out;
-      }
+    .app-link-wrapper {
   
       p {
-        transition: color .2s ease-in-out 0.2s;
+        transition: color .2s ease-in-out;
       }
     }
 
-    .social-media-link-wrapper:hover {
-      svg {
-        fill: $secondary;
+    .app-link-wrapper:hover {
+      .app-link-icon {
+        filter: invert(49%) sepia(35%) saturate(5687%) hue-rotate(142deg) brightness(94%) contrast(95%);
         transform: rotate(5deg);
       }
 

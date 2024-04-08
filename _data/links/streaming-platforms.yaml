@@ -1,10 +1,11 @@
-streamingApps:
-  - streamingName: Spotify
-    streamingLink: 'https://open.spotify.com/artist/0tmMEHwUMgSApF23AkOsXs'
-    streamingIcon: /images/spotify.svg
-  - streamingName: Apple Music
-    streamingLink: 'https://music.apple.com/us/artist/jonpaul-wallace/1343124687'
-    streamingIcon: /images/apple-music1.svg
-  - streamingName: YouTube
-    streamingLink: 'https://www.youtube.com/@jonpaulwallace'
-    streamingIcon: /images/youtube.svg
+title: Listen on all major streaming platforms
+app:
+  - name: Spotify
+    link: 'https://open.spotify.com/artist/0tmMEHwUMgSApF23AkOsXs'
+    icon: /images/spotify.svg
+  - name: Apple Music
+    link: 'https://music.apple.com/us/artist/jonpaul-wallace/1343124687'
+    icon: /images/apple-music1.svg
+  - name: YouTube
+    link: 'https://www.youtube.com/@jonpaulwallace'
+    icon: /images/youtube.svg
