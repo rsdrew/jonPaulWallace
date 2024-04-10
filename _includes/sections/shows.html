@@ -1,7 +1,7 @@
 <section id="shows">
   <div class="container section-margin">
-    <h2 class="section-title">{{ site.data.shows.shows.title }}</h2>
-    <div class="dotted-line"></div>
+    <h2 class="section-title slide-in">{{ site.data.shows.shows.title }}</h2>
+    <div class="dotted-line slide-in"></div>
     {% for show in site.data.shows.shows.shows limit:5 %}
 
       {% assign target_date = show.date | date: "%Y-%m-%d" %}
