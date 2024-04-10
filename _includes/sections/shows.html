@@ -1,20 +1,20 @@
 <section id="shows">
   <div class="container section-margin">
-    <h2 class="section-title">Catch a show</h2>
+    <h2 class="section-title">{{ site.data.shows.shows.title }}</h2>
     <div class="dotted-line"></div>
-    {% for show in site.data.shows limit:5 %}
+    {% for show in site.data.shows.shows.shows limit:5 %}
 
-    {% assign target_date = show.date | date: "%Y-%m-%d" %}
-    {% assign current_date = 'now' | date: "%Y-%m-%d" %}
-    
-    {% if target_date < current_date %}
-      {% assign disable_button = true %}
-    {% endif %}
+      {% assign target_date = show.date | date: "%Y-%m-%d" %}
+      {% assign current_date = 'now' | date: "%Y-%m-%d" %}
+      
+      {% if target_date < current_date %}
+        {% assign disable_button = true %}
+      {% endif %}
 
-      <div class="show">
+      <div class="show mb-4">
         <div class="show-info p-3">
-          <p class="show-date heading-color fs-5 d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.date | date: '%B %-d, %Y' }}</p>
-          <p class="show-location d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.location }}</p>
+          <p class="show-date heading-color fs-5 d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.date | date: '%A, %b %-d' }}</p>
+          <p class="show-location d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.venue }}</p>
           <p class="show-address d-flex align-items-center justify-content-center m-0 small-text slide-in">
             {{ show.address1 }}
             {% if show.address2 != "" %}
@@ -22,11 +22,7 @@
             {% endif %}
           </p>
           <div class="show-ages d-flex align-items-center justify-content-center small-text text-center slide-in">
-            {% if show.allAges %}
-              All ages
-            {% else %}
-              18+
-            {% endif %}
+            {{ show.ages }}
           </div>
         </div>
         <div class="show-tickets">

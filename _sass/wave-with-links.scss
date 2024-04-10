@@ -4,6 +4,11 @@
     text-decoration: none;
 
     .app-link-wrapper {
+
+      .app-link-icon {
+        filter: brightness(0) saturate(100%) invert(98%) sepia(1%) saturate(1335%) hue-rotate(177deg) brightness(80%) contrast(97%);
+        transition: all 0.2s ease-in-out;
+      }
   
       p {
         transition: color .2s ease-in-out;

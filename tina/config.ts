@@ -108,6 +108,11 @@ export default defineConfig({
         format: "yaml",
         fields: [
           {
+            name: "title",
+            label: "Section Title",
+            type: "string"
+          },
+          {
             name: "events",
             label: "Events",
             type: "object",
@@ -136,6 +141,71 @@ export default defineConfig({
             label: "Hide Photos Button Text",
             type: "string"
           },
+        ]
+      },
+      {
+        name: "shows",
+        label: "Shows Section",
+        path: "_data/shows",
+        format: "yaml",
+        fields: [
+          {
+            name: "title",
+            label: "Section Title",
+            type: "string",
+          },
+          {
+            name: "shows",
+            label: "Shows",
+            type: "object",
+            list: true,
+            fields: [
+              {
+                name: "date",
+                label: "Date",
+                type: "datetime",
+              },
+              {
+                name: "venue",
+                label: "Venue",
+                type: "string"
+              },
+              {
+                name: "address1",
+                label: "Address 1 (Address, Street)",
+                type: "string"
+              },
+              {
+                name: "address2",
+                label: "Address 2 (City, State, ZIP)",
+                type: "string"
+              },
+              {
+                name: "ages",
+                label: "Ages Allowed",
+                type: "string",
+                options: [
+                  {
+                    value: "All ages",
+                    label: "All ages"
+                  },
+                  {
+                    value: "18+",
+                    label: "18+"
+                  },
+                  {
+                    value: "21+",
+                    label: "21+"
+                  },
+                ]
+              },
+              {
+                name: "ticketLink",
+                label: "Ticket link",
+                type: "string"
+              }
+            ]
+          }
         ]
       },
       {
