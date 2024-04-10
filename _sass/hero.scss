@@ -4,11 +4,27 @@
   background-position: right;
   background-repeat: no-repeat;
   background-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   &__name-tag {
     letter-spacing: 0.16rem;
+  }
+
+  #hero-gradient {
+    width: 100vw;
+    min-height: 100vh;
+
+    background: black;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 25%, rgba(255,255,255,0) 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 800px) {
+  #hero-gradient {
+    background: rgba(0,0,0,0.7) !important;
   }
 }
