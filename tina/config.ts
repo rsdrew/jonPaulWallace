@@ -276,6 +276,29 @@ export default defineConfig({
             type: "string"
           }
         ]
+      },
+      {
+        name: "contactSection",
+        label: "Contact Section",
+        path: "_data/contact",
+        format: "yaml",
+        fields: [
+          {
+            name: "title",
+            label: "Section Title",
+            type: "string"
+          },
+          {
+            name: "buttonText",
+            label: "Button Text",
+            type: "string"
+          },
+          {
+            name: "image",
+            label: "Image",
+            type: "image"
+          }
+        ]
       }
     ],
   },

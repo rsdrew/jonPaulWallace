@@ -1,6 +1,6 @@
 <section id="contact">
   <div class="container section-margin">
-    <h2 class="section-title">Get in touch</h2>
+    <h2 class="section-title">{{ site.data.contact.contact.title }}</h2>
     <div class="dotted-line"></div>
     <div id="contact-grid">
       <div id="contact-form">
@@ -13,12 +13,13 @@
             name="message"
             class="form-control mb-4"
           ></textarea>
-          <button type="submit" class="btn btn-secondary w-100">Submit</button>
+          <button type="submit" class="btn btn-secondary w-100">{{ site.data.contact.contact.buttonText }}</button>
         </form>
       </div>
       <img
         id="contact-photo"
-        src="{{site.baseurl}}/assets/images/contact-section/about-section.jpg.webp"
+        src="{{site.baseurl}}/assets{{ site.data.contact.contact.image }}"
+        alt="Headshot of JonPaul Wallace"
         loading="lazy"
         height="600px"
         width="600px"
