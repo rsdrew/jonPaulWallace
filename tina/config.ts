@@ -244,6 +244,39 @@ export default defineConfig({
           }
         ]
       },
+      {
+        name: "emailingList",
+        label: "Emailing List Section",
+        path: "_data/emailing-list",
+        format: "yaml",
+        fields: [
+          {
+            name: "title",
+            label: "Section Title",
+            type: "string"
+          },
+          {
+            name: "text",
+            label: "Body Text",
+            type: "string"
+          },
+          {
+            name: "buttonText",
+            label: "Button Text",
+            type: "string"
+          },
+          {
+            name: "successMessage",
+            label: "Success Message",
+            type: "string"
+          },
+          {
+            name: "errorMessage",
+            label: "Error Message",
+            type: "string"
+          }
+        ]
+      }
     ],
   },
 });
