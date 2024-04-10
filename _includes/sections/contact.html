@@ -1,19 +1,19 @@
 <section id="contact">
   <div class="container section-margin">
-    <h2 class="section-title">{{ site.data.contact.contact.title }}</h2>
-    <div class="dotted-line"></div>
+    <h2 class="section-title slide-in">{{ site.data.contact.contact.title }}</h2>
+    <div class="dotted-line slide-in"></div>
     <div id="contact-grid">
       <div id="contact-form">
         <form action="">
-          <label for="email" class="form-label heading-color">Email:</label>
-          <input type="email" name="email" class="form-control mb-3" />
-          <label for="message" class="form-label heading-color">Message:</label>
+          <label for="email" class="form-label heading-color slide-in">Email:</label>
+          <input type="email" name="email" class="form-control mb-3 slide-in" />
+          <label for="message" class="form-label heading-color slide-in">Message:</label>
           <textarea
             id="message"
             name="message"
-            class="form-control mb-4"
+            class="form-control mb-4 slide-in"
           ></textarea>
-          <button type="submit" class="btn btn-secondary w-100">{{ site.data.contact.contact.buttonText }}</button>
+          <button type="submit" class="btn btn-secondary w-100 slide-in">{{ site.data.contact.contact.buttonText }}</button>
         </form>
       </div>
       <img
@@ -23,6 +23,7 @@
         loading="lazy"
         height="600px"
         width="600px"
+        class="slide-in"
       />
     </div>
   </div>

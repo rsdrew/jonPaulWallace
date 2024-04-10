@@ -11,17 +11,17 @@
         {% assign disable_button = true %}
       {% endif %}
 
-      <div class="show mb-4">
+      <div class="show mb-4 slide-in">
         <div class="show-info p-3">
-          <p class="show-date heading-color fs-5 d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.date | date: '%A, %b %-d' }}</p>
-          <p class="show-location d-flex align-items-center justify-content-center m-0 text-center slide-in">{{ show.venue }}</p>
-          <p class="show-address d-flex align-items-center justify-content-center m-0 small-text slide-in">
+          <p class="show-date heading-color fs-5 d-flex align-items-center justify-content-center m-0 text-center">{{ show.date | date: '%A, %b %-d' }}</p>
+          <p class="show-location d-flex align-items-center justify-content-center m-0 text-center">{{ show.venue }}</p>
+          <p class="show-address d-flex align-items-center justify-content-center m-0 small-text">
             {{ show.address1 }}
             {% if show.address2 != "" %}
               </br>{{ show.address2 }}
             {% endif %}
           </p>
-          <div class="show-ages d-flex align-items-center justify-content-center small-text text-center slide-in">
+          <div class="show-ages d-flex align-items-center justify-content-center small-text text-center">
             {{ show.ages }}
           </div>
         </div>

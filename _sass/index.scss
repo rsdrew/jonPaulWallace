@@ -63,9 +63,9 @@ p {
 }
 
 .slide-in {
-  transform: translateY(16px) !important;
+  transform: translateY(4rem) !important;
   opacity: 0 !important;
-  transition: transform 1s, opacity 1s !important;
+  transition: transform 0.5s, opacity 0.5s !important;
 }
 
 .slide-in--activate {

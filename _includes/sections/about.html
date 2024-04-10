@@ -2,7 +2,7 @@
   <div class="container section-margin">
     <div class="row">
       <div class="col-lg">
-        <div id="about-image" class="circular-image mx-auto mb-4 mb-lg-0">
+        <div id="about-image" class="circular-image mx-auto mb-4 mb-lg-0 slide-in">
           <img
             loading="lazy"
             src="{{ site.baseurl }}/assets/{{ site.data.about.about.aboutPhoto }}"
@@ -13,14 +13,14 @@
       </div>
       <div class="col-lg">
         <div>
-          <h2 class="section-title">{{ site.data.about.about.title }}</h2>
-          <div class="dotted-line"></div>
-          <p class="mb-5">
+          <h2 class="section-title slide-in">{{ site.data.about.about.title }}</h2>
+          <div class="dotted-line slide-in"></div>
+          <p class="mb-5 slide-in">
             {{ site.data.about.about.aboutIntro }}
           </p>
           <button
             id="about-learn-more-button"
-            class="btn btn-secondary"
+            class="btn btn-secondary slide-in"
             onclick="hideShowContent(
             'about-learn-more-button',
             'about-learn-more',
@@ -40,7 +40,7 @@
         <div class="row mt-5">
           <div class="col-lg-6 order-lg-2">
             <img
-              class="mb-3"
+              class="mb-3 slide-in"
               loading="lazy"
               src="{{ site.baseurl }}/assets{{ blurb.blurbImage }}"
               height="400px"
@@ -48,17 +48,17 @@
           </div>
           <div class="col-lg-6{% if mod == 0 %} order-1 order-lg-3 {% endif %}">
             <p class="about-text">
-              <span class="bold-green-text">{{ blurb.highlightedBlurb1 }}</span> {{ blurb.blurb1 }}
+              <span class="bold-green-text slide-in">{{ blurb.highlightedBlurb1 }}</span> {{ blurb.blurb1 }}
             </p>
             <p class="about-text">
-              <span class="bold-green-text">{{ blurb.highlightedBlurb2 }}</span> {{ blurb.blurb2 }}
+              <span class="bold-green-text slide-in">{{ blurb.highlightedBlurb2 }}</span> {{ blurb.blurb2 }}
             </p>
           </div>
         </div>
       {% endfor %}
 
       <a
-        class="btn btn-secondary mt-5"
+        class="btn btn-secondary mt-5 slide-in"
         href="{{ site.data.about.about.aboutCTALink }}"
         target="_blank"
         >{{ site.data.about.about.aboutCTAText }}</a

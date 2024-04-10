@@ -1,13 +1,13 @@
 <section id="photos">
   <div class="container section-margin">
-    <h2 class="section-title">{{ site.data.photos.photos.title }}</h2>
-    <div class="dotted-line"></div>
+    <h2 class="section-title slide-in">{{ site.data.photos.photos.title }}</h2>
+    <div class="dotted-line slide-in"></div>
 
     {% assign firstEvent = site.data.photos.photos.events[0] %}
 
     {% include partials/photo-gallery.html name=firstEvent.name photos=firstEvent.images %}
 
-    <button id="more-photos-button" class="btn btn-secondary mt-5" onclick="hideShowContent(
+    <button id="more-photos-button" class="btn btn-secondary mt-5 slide-in" onclick="hideShowContent(
       'more-photos-button',
       'more-photos',
       'More photos',
