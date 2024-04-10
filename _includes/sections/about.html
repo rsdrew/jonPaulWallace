@@ -38,21 +38,21 @@
       {% for blurb in site.data.about.about.aboutBlurb %}
         {% assign mod = forloop.index | modulo: 2 %}
         <div class="row mt-5">
-          <div class="col-lg-6">
-            <p class="about-text">
-              <span class="bold-green-text">{{ blurb.highlightedBlurb1 }}</span> {{ blurb.blurb1 }}
-            </p>
-            <p class="about-text">
-              <span class="bold-green-text">{{ blurb.highlightedBlurb2 }}</span> {{ blurb.blurb2 }}
-            </p>
-          </div>
-          <div class="col-lg-6 {% if mod == 0 %} order-first {% endif %}">
+          <div class="col-lg-6 order-lg-2">
             <img
               class="mb-3"
               loading="lazy"
               src="{{ site.baseurl }}/assets{{ blurb.blurbImage }}"
               height="400px"
             />
+          </div>
+          <div class="col-lg-6{% if mod == 0 %} order-1 order-lg-3 {% endif %}">
+            <p class="about-text">
+              <span class="bold-green-text">{{ blurb.highlightedBlurb1 }}</span> {{ blurb.blurb1 }}
+            </p>
+            <p class="about-text">
+              <span class="bold-green-text">{{ blurb.highlightedBlurb2 }}</span> {{ blurb.blurb2 }}
+            </p>
           </div>
         </div>
       {% endfor %}
