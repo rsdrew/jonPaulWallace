@@ -1,8 +1,16 @@
-<h2 class="section-title mb-4 text-center slide-in">{{ site.data.emailing-list.emailing-list.title }}</h2>
-<p class="mb-5 text-center slide-in">{{ site.data.emailing-list.emailing-list.text }}</p>
-<form action="">
-  <div id="emailing-list-form" class="d-flex gap-3 slide-in">
-    <input type="email" name="email" class="form-control" placeholder="Email" />
-    <button type="submit" class="btn btn-secondary text-nowrap">{{ site.data.emailing-list.emailing-list.buttonText }}</button>
+<h2 class="section-title mb-4 text-center slide-in">
+  {{ site.data.emailing-list.emailing-list.title }}
+</h2>
+<p class="mb-5 text-center slide-in">
+  {{ site.data.emailing-list.emailing-list.text }}
+</p>
+<form id="emailing-list-form" action="">
+  <div id="emailing-list-form-div" class="d-flex gap-3 slide-in">
+    <input type="email" name="email" id="emailing-list-email" class="form-control" placeholder="Email" required/>
+    <button type="submit" class="btn btn-secondary text-nowrap">
+      {{ site.data.emailing-list.emailing-list.buttonText }}
+    </button>
   </div>
 </form>
+<div id="emailing-list-success-message" class="hidden">SUCCESS</div>
+<div id="emailing-list-error-message" class="hidden">ERROR</div>
