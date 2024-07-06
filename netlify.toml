@@ -1,6 +1,6 @@
 [build]
   publish = "_site"
-  command = "npx tinacms build -c \"jekyll build\""
+  command = "bundle exec npx tinacms build -c \"jekyll build\""
 
 [functions]
   directory = "netlify/functions"
