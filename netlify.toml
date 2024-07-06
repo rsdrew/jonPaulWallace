@@ -1,6 +1,9 @@
 [build]
   publish = "_site"
-  command = "npx tinacms build -c \"jekyll serve\""
+  command = "npx tinacms build -c \"jekyll build\""
 
 [functions]
   directory = "netlify/functions"
+
+[context.production.environment]
+  BUNDLE_PATH = "vendor/bundle"
