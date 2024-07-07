@@ -6,16 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async function(event) {
     event.preventDefault();
-  
-    const email = document.getElementById("emailing-list-email");
+
+    const email = document.getElementById("emailing-list-email").value;
     const data = { email: email };
 
     try {
-      debugger;
-      const response = await fetch("https://main--transcendent-marzipan-2b3200.netlify.app/.netlify/functions/subscribe", {
+      const debugUrl = "http://localhost:8888/.netlify/functions/subscribe";
+      const prodUrl = "https://main--transcendent-marzipan-2b3200.netlify.app/.netlify/functions/subscribe";
+      const response = await fetch(prodUrl, {
         method: "POST",
         headers: {
-          "Content-Type": 'application/json'
+          "Content-Type": 'application/json',
+          "credentials": "include"
         },
         body: JSON.stringify(data)
       });

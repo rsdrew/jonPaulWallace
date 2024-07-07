@@ -6,3 +6,5 @@ vendor/bundle
 _config.yml
 node_modules
 .env
+# Local Netlify folder
+.netlify
