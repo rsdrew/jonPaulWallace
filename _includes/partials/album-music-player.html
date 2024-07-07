@@ -14,10 +14,14 @@
     <div class="blue-line mx-4"></div>
     <div class="song-list">
       {% for song in include.data %}
+      {% if song.disabled %}
+      <div class="song disabled d-flex justify-content-between px-4 py-3">
+      {% else %}
       <div
         class="song d-flex justify-content-between px-4 py-3"
         onclick="songOnClick(event, '{{include.id}}')"
       >
+      {% endif %}
         <div class="song-play-and-name">
           <div class="play-wrapper pe-4 d-inline-block">
             <i class="play fa fa-play"></i>

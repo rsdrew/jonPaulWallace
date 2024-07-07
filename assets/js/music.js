@@ -2,6 +2,7 @@
 
 // The wrapper for the song that is currently playing / was most recently played.
 // Access info using query selector. It should have <audio>, .song-name, and .song-length as descendants.
+const albumMusicPlayerSelector = ".album-music-player";
 const songNameSelector = ".song-name";
 const songLengthSelector = ".song-length";
 const songAudioSelector = "audio";
@@ -11,6 +12,8 @@ const songPlayPauseIconSelector = ".play";
 const albumPlayPauseIconSelector = ".album-play-pause";
 const albumSeekSliderSelector = ".album-seek-slider";
 const currentSongTimeSelector = ".currently-playing-song-current-time";
+
+const singleMusicPlayerSelector = ".single-music-player";
 
 function getCurrentSongWrapperForAlbum(albumID) {
   let currentSongWrapper = document.getElementById(albumID).querySelector(".song.current");
@@ -51,6 +54,7 @@ function songOnClick(event, albumID) {
   // Same song as before
   if (newSongAudio === currentSongAudio) {
     if (newSongAudio.paused) {
+      pauseAllSongs();
       newSongAudio.play();
     } else {
       newSongAudio.pause();
@@ -59,11 +63,8 @@ function songOnClick(event, albumID) {
   // New song
   else {
     dehighlightCurrentlyPlayingSong(albumID);
-    currentSongAudio?.pause();
-    updateCurrentlyPlayingSongPlayPauseIcon(albumID);
-
+    pauseAllSongs();
     setCurrentSongWrapperForAlbum(albumID, newSongWrapper);
-
     highlightCurrentlyPlayingSong(albumID);
     newSongAudio.play();
     updateAlbumCurrentlyPlayingInfo(albumID);
@@ -71,6 +72,30 @@ function songOnClick(event, albumID) {
 
   updateCurrentlyPlayingSongPlayPauseIcon(albumID);
   updateAlbumPlayPauseIcon(albumID);
+}
+
+function pauseAllSongs() {
+  // Pause all albums. Update Play/Pause icon.
+  const albums = document.querySelectorAll(albumMusicPlayerSelector);
+  albums.forEach((album) => {
+    const albumID = album.id;
+    const currentSongAudio = getCurrentSongWrapperForAlbum(albumID)?.querySelector(songAudioSelector);
+    currentSongAudio?.pause();
+    updateCurrentlyPlayingSongPlayPauseIcon(albumID);
+    updateAlbumPlayPauseIcon(albumID);
+  })
+
+  // Pause all singles.
+  const singles = document.querySelectorAll(singleMusicPlayerSelector);
+  singles.forEach((single) => {
+    const playPauseButton = single.querySelector("i");
+    const singleAudio = single.querySelector("audio");
+    if (!singleAudio.paused) {
+      singleAudio.pause();
+      playPauseButton.classList.remove("fa-pause");
+      playPauseButton.classList.add("fa-play");
+    }
+  });
 }
 
 function dehighlightCurrentlyPlayingSong(albumID) {
@@ -272,6 +297,7 @@ function singlePlayPauseOnClick(event) {
   const playPauseButton = event.currentTarget.querySelector("i");
   const singleAudio = event.currentTarget.querySelector("audio");
   if (singleAudio.paused) {
+    pauseAllSongs();
     singleAudio.play();
     playPauseButton.classList.remove("fa-play");
     playPauseButton.classList.add("fa-pause");

@@ -2,7 +2,7 @@
   <div class="container section-margin">
     <h2 class="section-title slide-in">Take a Listen</h2>
     <div class="dotted-line slide-in"></div>
-    {% include partials/album-music-player.html id="a-mere-starting-place" name="A Mere Starting Place" subtitle="Album" photoFilename="AMSP-COVER-1-jpg.webp" data=site.data.music.a-mere-starting-place %}
+    {% include partials/album-music-player.html id="footprints" name="Footprints" subtitle="Album" photoFilename="Footprints-Artwork.webp" data=site.data.music.footprints %}
     <button id="more-music-button" class="btn btn-secondary mt-5" onclick="hideShowContent(
       'more-music-button',
       'more-music',
@@ -19,6 +19,11 @@
         {% endfor %}
       </div>
 
+      <h2>A Mere Starting Place</h2>
+      <div class="dotted-line"></div>
+      {% include partials/album-music-player.html id="a-mere-starting-place" name="A Mere Starting Place" subtitle="Album" photoFilename="AMSP-COVER-1-jpg.webp" data=site.data.music.a-mere-starting-place %}
+      <div class="mb-5"></div>
+
       <h2>Singles</h2>
       <div class="dotted-line"></div>
       <div class="d-flex flex-wrap justify-content-around gap-4">
@@ -26,6 +31,7 @@
           {% include partials/single-music-player.html name=single.name length=single.length filename=single.filename %}
         {% endfor %}
       </div>
+      <div class="mb-5"></div>
 
       <h2>JonPaul Wallace EP</h2>
       <div class="dotted-line"></div>
