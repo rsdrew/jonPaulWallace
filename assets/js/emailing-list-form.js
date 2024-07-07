@@ -42,6 +42,7 @@ async function handleFormSubmit(event) {
     }
   }
   catch {
+    enableButtonForForm(form);
     displayErrorMessageForForm(form, result.message);
   }
 }
