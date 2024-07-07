@@ -3,14 +3,16 @@ const handler = async (event) => {
 
   debugger;
 
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS"
+  }
+
   if (event.httpMethod === "OPTIONS") {
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST, OPTIONS"
-      }
+      headers: headers
     }
   }
 
@@ -42,6 +44,7 @@ const handler = async (event) => {
     if (response.status === 400 && responseData.title === "Member Exists") {
       return {
         statusCode: 200,
+        headers: headers,
         body: JSON.stringify({ message: "You're already signed up!" })
       }
     }
@@ -52,12 +55,14 @@ const handler = async (event) => {
 
     return {
       statusCode: 200,
+      headers: headers,
       body: JSON.stringify({ message: "Thanks for signing up! See you at the next show!" })
     };
 
   } catch (error) {
     return { 
       statusCode: 500,
+      headers: headers,
       body: JSON.stringify({
         message: "Something went wrong. Please try again."
       })

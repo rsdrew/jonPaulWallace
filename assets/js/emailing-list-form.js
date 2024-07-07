@@ -19,7 +19,7 @@ async function handleFormSubmit(event) {
 
     setButtonAsSubmittingForForm(form);
 
-    //const debugUrl = "http://localhost:8888/.netlify/functions/subscribe";
+    const debugUrl = "http://localhost:8888/.netlify/functions/subscribe";
     const prodUrl = "https://main--transcendent-marzipan-2b3200.netlify.app/.netlify/functions/subscribe";
     const response = await fetch(prodUrl, {
       method: "POST",
