@@ -24,9 +24,6 @@
 	</div>
 	<div id="footer-emailing-list">
 		<label for="email" class="form-label heading-color mt-2 mb-3">Emailing List</label>
-		<div id="footer-emailing-list-input-and-button" class="d-flex gap-3">
-			<input type="email" name="email" class="form-control" />
-			<button type="submit" class="btn btn-secondary text-nowrap">Sign up</button>
-		</div>
+		{% include partials/emailing-list-form.html %}
 	</div>
 </div>

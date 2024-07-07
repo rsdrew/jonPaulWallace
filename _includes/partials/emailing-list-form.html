@@ -1,16 +1,10 @@
-<h2 class="section-title mb-4 text-center slide-in">
-  {{ site.data.emailing-list.emailing-list.title }}
-</h2>
-<p class="mb-5 text-center slide-in">
-  {{ site.data.emailing-list.emailing-list.text }}
-</p>
-<form id="emailing-list-form" action="">
-  <div id="emailing-list-form-div" class="d-flex gap-3 slide-in">
-    <input type="email" name="email" id="emailing-list-email" class="form-control" placeholder="Email" required/>
+<form class="emailing-list-form" action="https://jonpaulwallace.us17.list-manage.com/subscribe/post?u=d2efa8b94e4d03e467c79c011&amp;id=4ab489cc30&amp;f_id=0001e9e3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+  <div class="emailing-list-form-div d-flex gap-3 slide-in">
+    <input type="email" name="email" class="emailing-list-email form-control" placeholder="Email" required />
     <button type="submit" class="btn btn-secondary text-nowrap">
       {{ site.data.emailing-list.emailing-list.buttonText }}
     </button>
   </div>
+  <div class="emailing-list-success-message hidden slide-in"></div>
+  <div class="emailing-list-error-message hidden slide-in"></div>
 </form>
-<div id="emailing-list-success-message" class="hidden">SUCCESS</div>
-<div id="emailing-list-error-message" class="hidden">ERROR</div>

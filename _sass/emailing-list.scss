@@ -1,5 +1,20 @@
+.emailing-list-success-message,
+.emailing-list-error-message {
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.emailing-list-success-message {
+  color: $secondary;
+}
+
+.emailing-list-error-message {
+  color: #ffc107;
+}
+
 @media (max-width: 800px) {
-  #emailing-list-form-div {
+  .emailing-list-form-div {
     flex-wrap: wrap;
 
     & > * {

@@ -1,6 +1,12 @@
 {% include partials/top-wave.html %}
 <div class="bg-primary">
   <div class="container pt-5 pb-5">
+    <h2 class="section-title mb-4 text-center slide-in">
+      {{ site.data.emailing-list.emailing-list.title }}
+    </h2>
+    <p class="mb-5 text-center slide-in">
+      {{ site.data.emailing-list.emailing-list.text }}
+    </p>
     {% include partials/emailing-list-form.html %}
   </div>
 </div>
