@@ -65,7 +65,13 @@ function displayErrorMessageForForm(form, message) {
   setTimeout(() => {
     errorMessage.classList.add("slide-in--activate");
   }, 1);
-  errorMessage.innerHTML = message;
+
+  if (message) {
+    errorMessage.innerHTML = message;
+  }
+  else {
+    errorMessage.innerHTML = "Something went wrong. Please try again.";
+  }
 }
 
 function resetMessagesForForm(form) {
