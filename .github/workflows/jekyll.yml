@@ -49,7 +49,7 @@ jobs:
           BASE_PATH: jonPaulWallace
         run: npx tinacms build
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "/jonPaulWallace"
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
       - name: Update css file permissions 1
