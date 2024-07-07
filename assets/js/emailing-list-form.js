@@ -25,7 +25,6 @@ async function handleFormSubmit(event) {
       method: "POST",
       headers: {
         "Content-Type": 'application/json',
-        "credentials": "include"
       },
       body: JSON.stringify(data)
     });
