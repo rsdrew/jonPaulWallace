@@ -10,12 +10,13 @@
           enctype="multipart/form-data"
         >
           <label for="email" class="form-label heading-color slide-in">Email:</label>
-          <input type="email" name="email" class="form-control mb-3 slide-in" />
+          <input type="email" name="email" class="form-control mb-3 slide-in" required />
           <label for="message" class="form-label heading-color slide-in">Message:</label>
           <textarea
             id="message"
             name="message"
             class="form-control mb-4 slide-in"
+            required
           ></textarea>
           <button type="submit" class="btn btn-secondary w-100 slide-in">{{ site.data.contact.contact.buttonText }}</button>
         </form>
