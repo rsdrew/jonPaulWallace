@@ -5,8 +5,6 @@ const handler = async (event) => {
   const listId = process.env.MAILCHIMP_LIST_ID;
   const dc = process.env.MAILCHIMP_DC;
 
-  console.log("TEST");
-
   const url = `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/`;
 
   const subscriberData = {
