@@ -1,5 +1,12 @@
 title: Catch a show
 shows:
+  - date: 2024-07-26T04:00:00.000Z
+    venue: El Club
+    address1: 4114 W Vernor Hwy
+    address2: 'Detroit, MI 48209'
+    ages: All ages
+    ticketLink: >-
+      https://dice.fm/event/q2xv29-topanga-footprints-dual-album-release-party-26th-jul-el-club-detroit-detroit-tickets?pid=3fa89b58&_branch_match_id=1339781968662891733&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXz8nMy9ZLyUxO1UvL1a9INjc2MkmyMDZItbQvyEyxNU5LtLBMMrUAAFqNWykuAAAA
   - date: 2024-07-19T04:00:00.000Z
     venue: El Club
     address1: '4114 W, 4114 Vernor Hwy'
