@@ -23,6 +23,10 @@
 
 
 @media (max-width: 800px) {
+  #hero {
+    background-position: 72% -14vh;
+  }
+
   #hero-gradient {
     background: rgba(0,0,0,0.7) !important;
   }
