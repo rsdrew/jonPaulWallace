@@ -176,7 +176,7 @@ export default defineConfig({
               },
               {
                 name: "address2",
-                label: "Address 2 (City, State, ZIP)",
+                label: "Address 2 (City, State ZIP)",
                 type: "string"
               },
               {

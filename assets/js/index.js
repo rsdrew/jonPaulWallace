@@ -50,6 +50,17 @@ window.addEventListener("scroll", () => {
   lastScrollY = window.scrollY;
 });
 
+// Make the navbar hide after clicking a nav item on mobile
+const navbarCollapse = document.querySelector("#navbarSupportedContent");
+const navbarLinks = document.querySelectorAll(".nav-link");
+navbarLinks.forEach((navbarLink) => {
+  navbarLink.addEventListener("click", (event) => {
+    if (window.getComputedStyle(navbarCollapse).display !== "none") {
+      bootstrap.Collapse.getInstance(navbarCollapse).hide();
+    }
+  });
+});
+
 // This function is for hiding and showing content through the click of a button.
 function hideShowContent(
   buttonId,
