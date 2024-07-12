@@ -15,6 +15,21 @@ const currentSongTimeSelector = ".currently-playing-song-current-time";
 
 const singleMusicPlayerSelector = ".single-music-player";
 
+const pauseButton = document.querySelector("#pause-button");
+
+function showPauseButton() {
+  pauseButton.classList.add("display");
+}
+
+function hidePauseButton() {
+  pauseButton.classList.remove("display");
+}
+
+function pauseButtonOnClick() {
+  pauseAllSongs();
+  hidePauseButton();
+}
+
 function getCurrentSongWrapperForAlbum(albumID) {
   let currentSongWrapper = document.getElementById(albumID).querySelector(".song.current");
 
@@ -56,8 +71,10 @@ function songOnClick(event, albumID) {
     if (newSongAudio.paused) {
       pauseAllSongs();
       newSongAudio.play();
+      showPauseButton();
     } else {
       newSongAudio.pause();
+      hidePauseButton();
     }
   }
   // New song
@@ -67,6 +84,7 @@ function songOnClick(event, albumID) {
     setCurrentSongWrapperForAlbum(albumID, newSongWrapper);
     highlightCurrentlyPlayingSong(albumID);
     newSongAudio.play();
+    showPauseButton();
     updateAlbumCurrentlyPlayingInfo(albumID);
   }
 
@@ -81,6 +99,7 @@ function pauseAllSongs() {
     const albumID = album.id;
     const currentSongAudio = getCurrentSongWrapperForAlbum(albumID)?.querySelector(songAudioSelector);
     currentSongAudio?.pause();
+    hidePauseButton();
     updateCurrentlyPlayingSongPlayPauseIcon(albumID);
     updateAlbumPlayPauseIcon(albumID);
   })
@@ -92,6 +111,7 @@ function pauseAllSongs() {
     const singleAudio = single.querySelector("audio");
     if (!singleAudio.paused) {
       singleAudio.pause();
+      hidePauseButton();
       playPauseButton.classList.remove("fa-pause");
       playPauseButton.classList.add("fa-play");
     }
@@ -184,6 +204,7 @@ function playCurrentSong(albumID) {
 
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
   currentSongAudio.play();
+  showPauseButton();
 }
 
 function pauseCurrentSong(albumID) {
@@ -191,6 +212,7 @@ function pauseCurrentSong(albumID) {
 
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
   currentSongAudio.pause();
+  hidePauseButton();
 }
 
 function stopAndResetCurrentSong(albumID) {
@@ -198,6 +220,7 @@ function stopAndResetCurrentSong(albumID) {
 
   const currentSongAudio = currentSongWrapper.querySelector(songAudioSelector);
   currentSongAudio.pause();
+  hidePauseButton();
   currentSongAudio.currentTime = 0;
 }
 
@@ -221,8 +244,10 @@ function albumPlayPauseOnClick(event, albumID) {
 
   if (currentSongAudio.paused) {
     currentSongAudio.play();
+    showPauseButton();
   } else {
     currentSongAudio.pause();
+    hidePauseButton();
   }
 
   highlightCurrentlyPlayingSong(albumID);
@@ -299,11 +324,13 @@ function singlePlayPauseOnClick(event) {
   if (singleAudio.paused) {
     pauseAllSongs();
     singleAudio.play();
+    showPauseButton();
     playPauseButton.classList.remove("fa-play");
     playPauseButton.classList.add("fa-pause");
   }
   else {
     singleAudio.pause();
+    hidePauseButton();
     playPauseButton.classList.remove("fa-pause");
     playPauseButton.classList.add("fa-play");
   }

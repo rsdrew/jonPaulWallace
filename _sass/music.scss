@@ -143,6 +143,18 @@
   border-radius: $border-radius;
 }
 
+#pause-button {
+  position: fixed;
+  bottom: -200%;
+  right: 1rem;
+  z-index: 100;
+  transition: bottom 300ms ease-in-out;
+}
+
+#pause-button.display {
+  bottom: 1rem;
+}
+
 @media (max-width: 600px) {
   .single-music-player {
     width: 100%;
