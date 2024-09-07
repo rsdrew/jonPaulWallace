@@ -1,22 +1,19 @@
-- name: Coming Soon
-  length: "0:00"
-  filename: ""
-  disabled: true
+- name: Write Our Story
+  length: "3:01"
+  filename: writeOurStory.mp3
 
-- name: Coming Soon
-  length: "0:00"
-  filename: ""
-  disabled: true
+- name: Feeling Alive
+  length: "3:29"
+  filename: feelingAlive.mp3
 
 - name: Give Everybody Hell
   length: "2:27"
   filename: giveEverybodyHell.mp3
 
 - name: Work With Me (ft. Stoop Lee)
-  length: "2:54"
+  length: "2:55"
   filename: workWithMe.mp3
 
-- name: Coming Soon
-  length: "0:00"
-  filename: ""
-  disabled: true
+- name: Seasons Change Around Me
+  length: "3:45"
+  filename: seasonsChange.mp3
